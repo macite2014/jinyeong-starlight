@@ -3,15 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>가을 밤 별빛 소풍</title>
+<title>2026 가을밤 가족 별빛축제</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="2026 가족 별빛 축제 「가을 밤 별빛 소풍」 · 2026. 11. 6.(금) 17:00~21:00 · 진영공설운동장">
+<meta name="description" content="2026 가을밤 가족 별빛축제 · 김해천문대와 함께하는 특별한 별빛 축제 · 2026. 11. 6.(금) 17:00~21:00 · 진영공설운동장">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500;600&display=swap">
 <style>
 @font-face{font-family:"Cafe24 Anemone";src:url(cafe24-anemone.woff2) format("woff2");font-weight:400;font-display:swap}
-/* 최종 포스터(2026.10.22) 톤: 짙은 남색 밤하늘 · 크림 타이틀 · 라벤더 서브 · 단풍 주황 포인트 · 별자리 선.
+/* 최종 포스터(2026.10.23 수정본) 톤: 흰 타이틀 · 주황 "가을밤" · 라벤더 "별빛축제" · 노랑 강조.
+   이전 톤: 짙은 남색 밤하늘 · 크림 타이틀 · 라벤더 서브 · 단풍 주황 포인트 · 별자리 선.
    Layout: 밤하늘 한 장을 위에서 아래로 스크롤 — 해 질 녘(위) → 한밤(아래). 단일 다크 테마(의도적). */
 :root{
   --sky:#0A1129;        /* 바탕 밤하늘 */
@@ -20,7 +21,10 @@
   --line:#2A3468;       /* 구분선 */
   --star:#F4EAD5;       /* 본문 글자 = 별빛 크림 */
   --mute:#A9B5E0;       /* 보조 글자 */
-  --lav:#B7BFEA;        /* 서브 카피 라벤더 (포스터 서브 문구) */
+  --lav:#B7BFEA;        /* 보조 라벤더 */
+  --t-orange:#F5A11C;   /* 포스터 "가을밤" */
+  --t-lav:#CDA3D9;      /* 포스터 "별빛축제" */
+  --hl:#F4E33A;         /* 포스터 서브 강조 노랑 */
   --maple:#C9592E;      /* 단풍 (풍경·장식 전용) */
   --saturn:#EE9A4D;     /* 강조 1색: 단풍빛 주황 */
   --red:#E0564A;        /* 관측존 적색광 (배치도 전용) */
@@ -57,7 +61,13 @@ nav.top ul a:hover{color:var(--star)}
 .hero .grid{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}
 .eyebrow{font-size:14px;letter-spacing:.18em;color:var(--mute)}
 .hero h1{font-family:var(--title);font-weight:400;font-size:clamp(46px,7.6vw,88px);line-height:1.12;letter-spacing:-.01em;margin:14px 0 6px;text-wrap:balance}
-.hero .name{font-family:var(--body);font-weight:500;font-size:clamp(22px,3vw,32px);color:var(--lav);margin:0 0 20px;letter-spacing:-.01em}
+.hero .eyebrow-t{font-family:var(--title);font-size:clamp(26px,3.6vw,40px);line-height:1;margin:0}
+.hero .eyebrow-t span{color:var(--t-orange)}
+.hero h1 .lv{color:var(--t-lav)}
+.hero .name{font-family:var(--body);font-weight:500;font-size:clamp(19px,2.4vw,26px);color:var(--star);margin:0 0 20px;letter-spacing:-.01em}
+.hero .name b{color:var(--hl);font-weight:700}
+.apply{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:24px;font-size:15px}
+.apply b{color:var(--saturn);font-size:13px;letter-spacing:.06em}
 .band{position:relative;z-index:1;max-width:1400px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .band img{display:block;width:100%;height:auto;aspect-ratio:1142/202;object-fit:cover;border-radius:4px;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 22%,#000 70%,transparent),linear-gradient(to right,transparent,#000 8%,#000 92%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,transparent,#000 22%,#000 70%,transparent),linear-gradient(to right,transparent,#000 8%,#000 92%,transparent);mask-composite:intersect}
 .band p{text-align:center;color:var(--lav);font-size:15px;margin:-6px 0 0}
@@ -96,9 +106,9 @@ p{margin:0 0 12px}
 .facts dd{margin:0;min-width:0}
 blockquote{margin:0;font-family:var(--display);font-size:clamp(22px,2.8vw,28px);line-height:1.55}
 blockquote em{font-style:normal;color:var(--saturn)}
-.axes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.axes{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
 .axes div{border-top:2px solid var(--line);padding-top:14px}
-.axes b{font-family:var(--title);font-weight:400;font-size:28px;display:block}
+.axes b{font-family:var(--title);font-weight:400;font-size:24px;display:block}
 .axes span{color:var(--mute);font-size:14px}
 
 /* timetable */
@@ -171,6 +181,7 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--mute
   .booths{grid-template-columns:repeat(2,1fr)}
   .wx{grid-template-columns:repeat(2,1fr)}
   .zones{grid-template-columns:repeat(2,1fr)}
+  .axes{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:520px){
   .booths,.wx,.zones,.org,.axes{grid-template-columns:1fr}
@@ -209,7 +220,7 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--mute
 
 <nav class="top dimmable" aria-label="주요 메뉴">
   <div class="wrap">
-    <a class="brand" href="#top">가을 밤 별빛 소풍</a>
+    <a class="brand" href="#top">가족 별빛축제</a>
     <ul>
       <li><a href="#intro">행사소개</a></li>
       <li><a href="#schedule">행사일정</a></li>
@@ -225,14 +236,15 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--mute
   <header class="hero">
     <div class="wrap grid">
       <div>
-        <div class="eyebrow dimmable">2026 가족 별빛 축제</div>
-        <h1>가을 밤<br>별빛 소풍</h1>
-        <p class="name">돗자리도 펴고, 별도 보고!</p>
-        <p class="lede dimmable">금요일 저녁, 걸어서 오는 가족 소풍. 운동장의 불을 끄면 하늘이 열리고, 망원경으로 토성의 고리를 직접 봅니다. 다양한 체험과 간식도 함께해요.</p>
+        <p class="eyebrow-t">2026 <span>가을밤</span></p>
+        <h1>가족 <span class="lv">별빛축제</span></h1>
+        <p class="name">김해천문대와 함께하는 <b>특별한 별빛 축제</b></p>
+        <p class="lede dimmable">금요일 저녁, 돗자리 들고 오는 가족 소풍. 운동장의 불을 끄면 하늘이 열리고, 김해천문대 망원경으로 토성의 고리를 직접 봅니다. 공연·체험·피크닉도 함께해요.</p>
         <div class="when dimmable">
           <span>2026. 11. 6.(금) <small>17:00 – 21:00</small></span>
-          <span>진영공설운동장</span>
+          <span>진영공설운동장 <small>김해시 진영읍 김해대로 257</small></span>
         </div>
+        <div class="apply dimmable"><b>천체관측체험 신청</b><span>김해시공공예약 포털 선착순 · 그 외 프로그램은 신청 없이 자유 참여</span></div>
         <div class="count dimmable" id="count" aria-label="행사 시작까지 남은 시간">
           <div><b id="cd-d">--</b><i>DAYS</i></div>
           <div><b id="cd-h">--</b><i>HOURS</i></div>
@@ -240,11 +252,11 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--mute
           <div><b id="cd-s">--</b><i>SEC</i></div>
         </div>
         <div class="btns">
-          <button class="btn solid" id="lights" type="button" aria-pressed="false">18:00 소등, 미리 해보기</button>
-          <a class="btn dimmable" href="#program">천체관측 안내</a>
+          <a class="btn solid dimmable" href="https://m.site.naver.com/2iGAe" target="_blank" rel="noopener">천체관측 예약하기 ↗</a>
+          <button class="btn" id="lights" type="button" aria-pressed="false">18:00 소등, 미리 해보기</button>
         </div>
       </div>
-      <img class="poster dimmable" src="poster.jpg" alt="가을 밤 별빛 소풍 포스터 — 단풍 든 언덕에서 망원경으로 가을 별자리를 보는 가족들" width="720" height="1058">
+      <img class="poster dimmable" src="poster.jpg" alt="2026 가을밤 가족 별빛축제 포스터 — 단풍 든 언덕에서 망원경으로 가을 별자리를 보는 가족들. 11월 6일(금) 17:00~21:00, 진영공설운동장" width="760" height="1075">
     </div>
   </header>
   <div class="band dimmable" aria-hidden="true"><img src="band.jpg" alt="" width="1142" height="202"></div>
@@ -255,11 +267,12 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--mute
       <div class="sh"><h2>행사소개</h2><p>불을 끄면, 가족이 보인다</p></div>
       <div class="intro">
         <dl class="facts">
-          <dt>행사명</dt><dd>2026 가족 별빛 축제 「가을 밤 별빛 소풍」</dd>
-          <dt>주제</dt><dd>망원경으로 만나는 토성·페가수스와 가을철 별자리</dd>
+          <dt>행사명</dt><dd>2026 가을밤 가족 별빛축제</dd>
+          <dt>주제</dt><dd>김해천문대와 함께하는 특별한 별빛 축제<br><span class="note">망원경으로 만나는 토성·페가수스와 가을철 별자리</span></dd>
           <dt>일시</dt><dd>2026. 11. 6.(금) 17:00 ~ 21:00</dd>
-          <dt>장소</dt><dd>진영공설운동장<br><span class="note">우천·혹한 시 김해시청소년수련관 실내 전환</span></dd>
+          <dt>장소</dt><dd>진영공설운동장 (김해시 진영읍 김해대로 257)<br><span class="note">우천·혹한 시 김해시청소년수련관 실내 전환</span></dd>
           <dt>대상</dt><dd>청소년 포함 가족, 지역 주민 누구나</dd>
+          <dt>신청</dt><dd>천체관측체험만 <a href="https://m.site.naver.com/2iGAe" target="_blank" rel="noopener">김해시공공예약 포털</a> 선착순<br><span class="note">공연·체험·피크닉은 신청 없이 자유 참여</span></dd>
           <dt>주최</dt><dd>김해시청소년수련관</dd>
           <dt>협력</dt><dd>김해천문대</dd>
         </dl>
@@ -269,9 +282,10 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--mute
         </div>
       </div>
       <div class="axes">
-        <div><b>별</b><span>망원경 천체관측 5회차 · 자유관측 · 별자리 해설</span></div>
-        <div><b>밤</b><span>18:00 소등 세리머니 · 관측존 적색광 · 피날레 랜턴 소등</span></div>
-        <div><b>소풍</b><span>가족 피크닉존 · 별빛 다방 · 어쿠스틱 공연</span></div>
+        <div><b>별빛 관측 존</b><span>김해천문대 망원경 천체관측 5회차 · 자유관측 · 18:00 소등 세리머니</span></div>
+        <div><b>별빛 문화공연</b><span>석양과 밤하늘 아래 잔잔한 어쿠스틱 · 피날레 랜턴 소등</span></div>
+        <div><b>별빛 체험 존</b><span>별자리 랜턴 · 스탬프 미션 · 별빛 네컷 · 별똥별 뽑기</span></div>
+        <div><b>가족 피크닉 존</b><span>돗자리 펴고 쉬는 무대 앞 잔디 · 별빛 다방 · 레크리에이션</span></div>
       </div>
     </div>
   </section>
@@ -280,13 +294,13 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--mute
     <div class="wrap">
       <div class="sh"><h2>행사일정</h2><p>해가 지는 순간부터 별이 뜨는 순간까지</p></div>
       <ol class="tt">
-        <li class="key" style="--c:#F2B56B"><span class="dot"></span><time>17:00</time><div><b>개장 · 천체관측 현장신청 시작</b><span>등록부스에서 선착순으로 관측 회차 배정. 체험부스 동시 개장</span></div></li>
-        <li style="--c:#EFA06A"><span class="dot"></span><time>17:05</time><div><b>1부 공연 · 어쿠스틱</b><span>석양 무렵의 첫 무대, 스탬프 미션 시작</span></div></li>
-        <li style="--c:#DB8370"><span class="dot"></span><time>17:30</time><div><b>해넘이</b><span>피크닉존에서 해 지는 하늘을 함께 봅니다</span></div></li>
+        <li class="key" style="--c:#F2B56B"><span class="dot"></span><time>17:00</time><div><b>개장 · 관측권 배부 시작</b><span>천체관측 예약 가족은 등록부스에서 예약 확인 후 색깔 관측권 수령. 별빛 체험 존 동시 개장</span></div></li>
+        <li style="--c:#EFA06A"><span class="dot"></span><time>17:05</time><div><b>별빛 문화공연 1부 · 어쿠스틱</b><span>석양 무렵의 첫 무대, 스탬프 미션 시작</span></div></li>
+        <li style="--c:#DB8370"><span class="dot"></span><time>17:30</time><div><b>해넘이</b><span>가족 피크닉 존에서 해 지는 하늘을 함께 봅니다</span></div></li>
         <li style="--c:#A9677F"><span class="dot"></span><time>17:45</time><div><b>개회식</b><span>15분</span></div></li>
         <li class="key" style="--c:#6B5A8E"><span class="dot"></span><time>18:00</time><div><b>소등 세리머니</b><span>10초 카운트다운 → 조명탑 순차 소등 → 90초 눈 적응 → 육안 별자리 해설</span></div></li>
-        <li class="key" style="--c:#3B4583"><span class="dot"></span><time>18:10</time><div><b>천체관측 1~5회차</b><span>20분 간격 · 19:50 종료 / 무대 포토존 개방</span></div></li>
-        <li style="--c:#252E66"><span class="dot"></span><time>19:30</time><div><b>2부 공연 · 어쿠스틱</b><span>관측을 기다리는 가족을 위한 낮은 음량의 무대</span></div></li>
+        <li class="key" style="--c:#3B4583"><span class="dot"></span><time>18:10</time><div><b>별빛 관측 존 · 천체관측 1~5회차</b><span>20분 간격 · 19:50 종료 / 무대 포토존 개방</span></div></li>
+        <li style="--c:#252E66"><span class="dot"></span><time>19:30</time><div><b>별빛 문화공연 2부 · 어쿠스틱</b><span>관측을 기다리는 가족을 위한 낮은 음량의 무대</span></div></li>
         <li style="--c:#1E2658"><span class="dot"></span><time>19:50</time><div><b>자유 시간</b><span>육안 별 보기 · 별자리 퀴즈 · 별빛 네컷 · 별똥별 뽑기 (리워드 교환 20:40 마감)</span></div></li>
         <li class="key" style="--c:#161D47"><span class="dot"></span><time>20:45</time><div><b>피날레 · 다 함께 부르는 노래</b><span>직접 만든 별자리 랜턴을 동시에 끕니다</span></div></li>
         <li style="--c:#0B1230;--c2:1"><span class="dot" style="border:1px solid var(--line)"></span><time>21:00</time><div><b>조명 재점등 · 귀가</b><span>종료와 동시에 운동장 조명을 다시 켭니다</span></div></li>
@@ -303,22 +317,22 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--mute
           <path d="M260 110 H540 Q560 110 560 130 V215 H240 V130 Q240 110 260 110Z" fill="#E0564A" fill-opacity=".14" stroke="#E0564A" stroke-dasharray="6 5"/>
           <g fill="#F4EAD5"><circle cx="340" cy="150" r="7"/><circle cx="400" cy="138" r="7"/><circle cx="460" cy="150" r="7"/></g>
           <g fill="#F4EAD5" fill-opacity=".55"><circle cx="275" cy="190" r="6"/><circle cx="525" cy="190" r="6"/></g>
-          <text x="400" y="190" fill="#F4EAD5" font-size="15" font-weight="700" text-anchor="middle" font-family="Noto Sans KR,sans-serif">A 관측존</text>
+          <text x="400" y="190" fill="#F4EAD5" font-size="15" font-weight="700" text-anchor="middle" font-family="Noto Sans KR,sans-serif">A 별빛 관측 존</text>
           <text x="400" y="207" fill="#A9B5E0" font-size="11" text-anchor="middle" font-family="Noto Sans KR,sans-serif">적색광 전용 · 메인 망원경 + 자유관측</text>
           <!-- B 피크닉 -->
           <rect x="250" y="240" width="300" height="80" rx="8" fill="#F2B544" fill-opacity=".1" stroke="#F2B544" stroke-opacity=".6"/>
-          <text x="400" y="286" fill="#F4EAD5" font-size="15" font-weight="700" text-anchor="middle" font-family="Noto Sans KR,sans-serif">B 가족 피크닉존</text>
+          <text x="400" y="286" fill="#F4EAD5" font-size="15" font-weight="700" text-anchor="middle" font-family="Noto Sans KR,sans-serif">B 가족 피크닉 존</text>
           <!-- C 무대 -->
           <rect x="350" y="392" width="100" height="26" rx="4" fill="#8FB3FF" fill-opacity=".25" stroke="#8FB3FF"/>
-          <text x="400" y="410" fill="#F4EAD5" font-size="12" font-weight="700" text-anchor="middle" font-family="Noto Sans KR,sans-serif">C 무대·포토존</text>
+          <text x="400" y="410" fill="#F4EAD5" font-size="12" font-weight="700" text-anchor="middle" font-family="Noto Sans KR,sans-serif">C 문화공연·포토존</text>
           <!-- D 부스존 U -->
           <g fill="#7FD1B9" fill-opacity=".25" stroke="#7FD1B9">
             <rect x="24" y="120" width="60" height="34" rx="4"/><rect x="24" y="162" width="60" height="34" rx="4"/><rect x="24" y="204" width="60" height="34" rx="4"/><rect x="24" y="246" width="60" height="34" rx="4"/><rect x="24" y="288" width="60" height="34" rx="4"/>
             <rect x="716" y="120" width="60" height="34" rx="4"/><rect x="716" y="162" width="60" height="34" rx="4"/><rect x="716" y="204" width="60" height="34" rx="4"/><rect x="716" y="246" width="60" height="34" rx="4"/>
           </g>
           <rect x="716" y="288" width="60" height="34" rx="4" fill="#E99AC4" fill-opacity=".25" stroke="#E99AC4"/>
-          <text x="54" y="105" fill="#F4EAD5" font-size="13" font-weight="700" text-anchor="middle" font-family="Noto Sans KR,sans-serif">D 체험부스</text>
-          <text x="746" y="105" fill="#F4EAD5" font-size="13" font-weight="700" text-anchor="middle" font-family="Noto Sans KR,sans-serif">D 체험부스</text>
+          <text x="54" y="105" fill="#F4EAD5" font-size="13" font-weight="700" text-anchor="middle" font-family="Noto Sans KR,sans-serif">D 별빛 체험 존</text>
+          <text x="746" y="105" fill="#F4EAD5" font-size="13" font-weight="700" text-anchor="middle" font-family="Noto Sans KR,sans-serif">D 별빛 체험 존</text>
           <text x="746" y="342" fill="#F4EAD5" font-size="12" font-weight="700" text-anchor="middle" font-family="Noto Sans KR,sans-serif">E 별빛 다방</text>
           <!-- HQ -->
           <rect x="24" y="352" width="96" height="40" rx="6" fill="#F2B544"/>
@@ -329,12 +343,12 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--mute
         </svg>
       </div>
       <ul class="zones">
-        <li><b>A</b><span>관측존 — 메인 망원경 회차 관측, 서브 망원경 자유관측. 붉은 빛만 사용합니다</span></li>
-        <li><b>B</b><span>가족 피크닉존 — 돗자리를 펴고 쉬는 곳. 무대 정면</span></li>
-        <li><b>C</b><span>무대·포토존 — 공연이 없을 때 가족 포토존으로 개방</span></li>
-        <li><b>D</b><span>체험부스존 — 진입로부터 트랙 바깥으로 이어지는 체험부스</span></li>
+        <li><b>A</b><span>별빛 관측 존 — 메인 망원경 회차 관측, 서브 망원경 자유관측. 붉은 빛만 사용합니다</span></li>
+        <li><b>B</b><span>가족 피크닉 존 — 돗자리를 펴고 쉬는 곳. 무대 정면</span></li>
+        <li><b>C</b><span>별빛 문화공연 무대·포토존 — 공연이 없을 때 가족 포토존으로 개방</span></li>
+        <li><b>D</b><span>별빛 체험 존 — 진입로부터 트랙 바깥으로 이어지는 체험부스</span></li>
         <li><b>E</b><span>별빛 다방 — 따뜻한 음료, 추울 때 쉬어 가는 곳</span></li>
-        <li><b>★</b><span>본부·등록부스 — 천체관측 현장신청, 미아 보호, 응급 대응</span></li>
+        <li><b>★</b><span>본부·등록부스 — 천체관측 예약 확인·관측권 배부, 미아 보호, 응급 대응</span></li>
       </ul>
       <p class="note" style="margin-top:12px">개략도입니다. 실제 배치는 현장 여건에 따라 달라질 수 있습니다.</p>
     </div>
@@ -342,13 +356,13 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--mute
 
   <section id="program">
     <div class="wrap">
-      <div class="sh"><h2>프로그램</h2><p>천체관측만 현장신청, 나머지는 누구나 자유롭게</p></div>
+      <div class="sh"><h2>프로그램</h2><p>천체관측만 사전예약, 나머지는 누구나 자유롭게</p></div>
 
       <div class="main-obs">
         <div>
           <span class="tag">메인 프로그램</span>
-          <h3 style="font-family:var(--title);font-weight:400;font-size:30px">망원경 천체관측</h3>
-          <p>18:10부터 19:50까지, 20분씩 5회차. 모든 회차가 같은 구성이라 어느 회차에 들어와도 같은 하늘을 봅니다. 회차마다 색이 다른 관측권을 드립니다.</p>
+          <h3 style="font-family:var(--title);font-weight:400;font-size:30px">별빛 관측 존 · 망원경 천체관측</h3>
+          <p>김해천문대가 함께합니다. 18:10부터 19:50까지, 20분씩 5회차. 모든 회차가 같은 구성이라 어느 회차에 들어와도 같은 하늘을 봅니다. 회차마다 색이 다른 관측권을 드립니다.</p>
           <div class="tickets" aria-label="회차별 관측권">
             <div class="ticket" style="--c:var(--t1)"><small>1회차</small><b>18:10</b></div>
             <div class="ticket" style="--c:var(--t2)"><small>2회차</small><b>18:30</b></div>
@@ -365,18 +379,18 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--mute
         <div>
           <h3>참여 방법</h3>
           <ol class="steps">
-            <li><span><b>17:00 개장과 함께 등록부스로</b><br><span class="note">별도 사전신청은 없습니다. 당일 선착순으로 회차를 배정합니다.</span></span></li>
-            <li><span><b>회차별 색깔 관측권 받기</b><br><span class="note">1가족 1회차. 일찍 오면 원하는 회차를 고를 수 있어요.</span></span></li>
+            <li><span><b>김해시공공예약 포털에서 예약</b><br><span class="note">선착순으로 회차를 골라 신청합니다. 포스터의 QR로도 들어갈 수 있어요.</span><br><a class="btn solid" href="https://m.site.naver.com/2iGAe" target="_blank" rel="noopener" style="margin-top:8px;padding:8px 16px;font-size:14px">예약 페이지 열기 ↗</a></span></li>
+            <li><span><b>당일 등록부스에서 색깔 관측권 받기</b><br><span class="note">17:00부터 예약 확인 후 회차별 관측권을 드립니다.</span></span></li>
             <li><span><b>회차 시작 5분 전, 관측존 입구 집결</b><br><span class="note">큰 화면으로 오늘 볼 별을 먼저 보고, 가족 단위로 망원경을 돌며 관측합니다.</span></span></li>
           </ol>
           <div class="box" style="margin-top:20px">
-            <b>관측권이 없어도 괜찮아요</b>
-            <p class="note" style="margin:6px 0 0">관측존 옆 자유관측 망원경은 신청 없이 줄 서서 볼 수 있습니다(18:10~19:50). 회차가 마감되면 자유관측으로 안내해 드립니다. 늦게 온 가족을 위해 시작 시각까지 오지 않은 관측권은 현장 대기 가족에게 순서대로 넘겨 드립니다.</p>
+            <b>예약을 못 했어도 괜찮아요</b>
+            <p class="note" style="margin:6px 0 0">관측존 옆 자유관측 망원경은 신청 없이 줄 서서 볼 수 있습니다(18:10~19:50). 예약 취소나 불참으로 결원이 생긴 회차는 당일 등록부스에서 일부 현장 접수하고, 회차 시작 시각까지 오지 않은 자리는 현장 대기 가족에게 순서대로 넘겨 드립니다.</p>
           </div>
         </div>
       </div>
 
-      <h3>체험부스</h3>
+      <h3>별빛 체험 존</h3>
       <p class="note">신청 없이 자유롭게 참여하세요. 운영 17:00~21:00</p>
       <div class="booths" style="margin-top:16px">
         <div class="booth"><span class="no">01</span><h4>별자리 랜턴 만들기</h4><p>원통에 가을 별자리 구멍을 뚫고 불을 켜면 벽에 별자리가 비칩니다. 피날레 소등 때 함께 써요.</p></div>
@@ -398,12 +412,12 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--mute
           <p class="note" style="margin:0">코인은 별똥별 뽑기(9번 부스) 인형뽑기 기계에서 간식을 뽑는 데 씁니다. 간식이 모두 나가면 교환을 마감하고 스티커로 대신하며, 못 뽑은 아이에게는 야광 별 스티커를 드립니다. 리워드 교환 마감 20:40.</p>
         </div>
         <div class="box">
-          <h3>공연 · 피크닉</h3>
+          <h3>별빛 문화공연 · 가족 피크닉 존</h3>
           <ul>
             <li><b>1부 17:05~17:45</b> 석양의 어쿠스틱 무대</li>
             <li><b>2부 19:30~20:10</b> 관측을 방해하지 않는 낮은 음량의 어쿠스틱</li>
             <li><b>피날레 20:45~21:00</b> 다 함께 부르는 노래와 랜턴 동시 소등</li>
-            <li><b>가족 피크닉존</b> 무대 앞 잔디. 레크리에이션 17:20·18:20, 어두워진 뒤엔 가족 별자리 퀴즈</li>
+            <li><b>가족 피크닉 존</b> 무대 앞 잔디. 레크리에이션 17:20·18:20, 어두워진 뒤엔 가족 별자리 퀴즈</li>
             <li><b>방한</b> 핫팩 배부, 무릎담요 대여(수량 한정)</li>
           </ul>
         </div>
@@ -422,7 +436,8 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--mute
       </div>
       <p class="note" style="margin-top:12px">기상 판단은 11. 4.(수) 18:00 1차, 행사 당일 12:00 최종으로 하며 결과를 따로 공지합니다.</p>
       <h3 style="margin-top:40px">준비물</h3>
-      <div class="bring"><span>따뜻한 겉옷</span><span>담요</span><span>돗자리 · 은박매트</span></div>
+      <div class="bring"><span>돗자리 · 은박매트</span><span>따뜻한 겉옷</span><span>담요</span></div>
+      <p class="note" style="margin-top:10px">돗자리와, 필요에 따라 따뜻한 겉옷 및 담요를 준비해 주세요. 기상상황에 따라 프로그램이 변경될 수 있습니다.</p>
       <div class="two" style="margin-top:32px">
         <div class="box">
           <h3>관측 예절</h3>
@@ -449,7 +464,7 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--mute
       <div class="loc">
         <div>
           <h3>진영공설운동장</h3>
-          <p class="note">경상남도 김해시 진영읍</p>
+          <p class="note">경상남도 김해시 진영읍 김해대로 257</p>
           <div class="maplinks">
             <a class="btn" href="https://map.kakao.com/?q=%EC%A7%84%EC%98%81%EA%B3%B5%EC%84%A4%EC%9A%B4%EB%8F%99%EC%9E%A5" target="_blank" rel="noopener">카카오맵</a>
             <a class="btn" href="https://map.naver.com/p/search/%EC%A7%84%EC%98%81%EA%B3%B5%EC%84%A4%EC%9A%B4%EB%8F%99%EC%9E%A5" target="_blank" rel="noopener">네이버지도</a>
@@ -474,11 +489,11 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--mute
       <div class="board">
         <div class="faq">
           <h3>자주 묻는 질문</h3>
-          <details open><summary>천체관측은 미리 신청해야 하나요?</summary><p>사전신청은 없습니다. 행사 당일 17:00 개장과 함께 등록부스에서 선착순으로 회차를 배정하고 색깔 관측권을 드립니다. 1가족 1회차만 신청할 수 있어요.</p></details>
-          <details><summary>관측권을 못 받으면 망원경을 볼 수 없나요?</summary><p>관측존 옆 자유관측 망원경은 신청 없이 줄 서서 볼 수 있습니다(18:10~19:50). 회차 시작 시각까지 오지 않은 관측권은 현장에서 기다리는 가족에게 순서대로 넘겨 드립니다.</p></details>
+          <details open><summary>천체관측은 미리 신청해야 하나요?</summary><p>네. 천체관측체험만 <a href="https://m.site.naver.com/2iGAe" target="_blank" rel="noopener">김해시공공예약 포털</a>에서 선착순으로 사전 예약합니다. 행사 당일 17:00부터 등록부스에서 예약을 확인하고 회차별 색깔 관측권을 드려요. 공연·체험·피크닉은 신청 없이 참여할 수 있습니다.</p></details>
+          <details><summary>예약을 못 하면 망원경을 볼 수 없나요?</summary><p>관측존 옆 자유관측 망원경은 신청 없이 줄 서서 볼 수 있습니다(18:10~19:50). 결원이 생긴 회차는 당일 등록부스에서 일부 현장 접수하고, 회차 시작 시각까지 오지 않은 자리는 현장에서 기다리는 가족에게 순서대로 넘겨 드립니다.</p></details>
           <details><summary>체험부스도 신청해야 하나요?</summary><p>아니요. 체험부스, 공연, 피크닉존, 별빛 네컷은 신청 없이 자유롭게 이용합니다. 스탬프 미션을 완료하면 간식을 뽑을 수 있는 별똥별 뽑기 코인을 드려요.</p></details>
           <details><summary>비가 오거나 흐리면 어떻게 되나요?</summary><p>흐리면 밝은 천체 위주로 관측하고, 어려운 회차는 큰 화면 천체영상과 별자리 해설로 진행합니다. 비나 강풍이면 김해시청소년수련관 실내로 옮기거나 일정을 미룹니다. 기상 판단은 11. 4.(수) 18:00 1차, 당일 12:00 최종으로 하며 결과를 공지합니다.</p></details>
-          <details><summary>무엇을 챙겨 가면 좋을까요?</summary><p>11월 저녁 야외라 꽤 춥습니다. 따뜻한 겉옷, 담요, 돗자리나 은박매트를 챙겨 주세요. 현장에서 핫팩을 나눠 드리고 무릎담요를 수량 한정으로 빌려 드립니다.</p></details>
+          <details><summary>무엇을 챙겨 가면 좋을까요?</summary><p>11월 저녁 야외라 꽤 춥습니다. 돗자리와, 필요에 따라 따뜻한 겉옷과 담요를 챙겨 주세요. 현장에서 핫팩을 나눠 드리고 무릎담요를 수량 한정으로 빌려 드립니다.</p></details>
           <details><summary>주차할 곳이 있나요?</summary><p>운동장 주차장과 인근 주차 공간을 이용할 수 있지만 넉넉하지 않습니다. 가까운 분은 걸어서 와 주세요. 21:00 종료 후 10분간은 걷는 분이 먼저 나가고 차량은 순서대로 나갑니다.</p></details>
           <details><summary>아이를 잃어버리면 어디로 가야 하나요?</summary><p>아이들에게 보호자 연락처를 적는 야광 손목밴드를 채워 드립니다. 아이를 찾을 때는 본부·등록부스나 별빛 다방으로 오세요. 현장 방송과 전 부스가 함께 찾습니다.</p></details>
         </div>
@@ -488,7 +503,7 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--mute
           <label for="q-type"><span>문의 유형 <i>*</i></span>
             <select id="q-type" required>
               <option value="">선택해 주세요</option>
-              <option>천체관측·현장신청</option><option>체험부스·공연 프로그램</option><option>날씨·운영 변경</option><option>주차·오시는 길</option><option>기타</option>
+              <option>천체관측·예약</option><option>체험부스·공연 프로그램</option><option>날씨·운영 변경</option><option>주차·오시는 길</option><option>기타</option>
             </select></label>
           <label for="q-body"><span>문의 내용 <i>*</i></span><textarea id="q-body" required maxlength="2000"></textarea></label>
           <label for="q-name"><span>보호자 성함</span><input type="text" id="q-name" maxlength="40" autocomplete="name"></label>
@@ -506,7 +521,7 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--mute
     <div class="wrap">
       <div class="sh"><h2>문의</h2></div>
       <div class="org">
-        <div><b>김해시청소년수련관</b><p>주최 · 행사 전반 문의</p><p class="tel" style="margin-top:12px;color:var(--star)">055-346-2100</p></div>
+        <div><b>김해시청소년수련관</b><p>김해시복지재단 · 주최 · 행사 전반 문의</p><p class="tel" style="margin-top:12px;color:var(--star)">055-346-2100</p></div>
         <div><b>김해천문대</b><p>협력 · 천체관측 망원경과 관측 해설 지원</p></div>
       </div>
     </div>
@@ -517,7 +532,7 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--mute
 <footer class="dimmable">
   <div class="wrap">
     <p style="margin:0 0 6px;color:var(--star)">주최 김해시청소년수련관 · 협력 김해천문대 · 문의 055-346-2100</p>
-    <p style="margin:0">2026 가족 별빛 축제 「가을 밤 별빛 소풍」 · 2026. 11. 6.(금) 17:00~21:00 · 진영공설운동장</p>
+    <p style="margin:0">2026 가을밤 가족 별빛축제 · 2026. 11. 6.(금) 17:00~21:00 · 진영공설운동장(김해시 진영읍 김해대로 257)</p>
     <p style="margin:6px 0 0">© 2026 김해시청소년수련관</p>
   </div>
 </footer>
