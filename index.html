@@ -122,6 +122,16 @@ blockquote em{font-style:normal;color:var(--saturn)}
 
 /* map */
 .mapbox{overflow-x:auto;background:var(--sky-deep);border:1px solid var(--line);border-radius:12px;padding:16px}
+.mapimg{display:block;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--sky-deep)}
+.mapimg img{display:block;width:100%;height:auto}
+.c-info{--c:#F2B544}.c-exp{--c:#7FD1B9}.c-photo{--c:#C9A8FF}.c-rest{--c:#E99AC4}.c-obs{--c:#E0564A}.c-sys{--c:#8FB3FF}
+.num{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--c);color:var(--sky-deep);font:700 13px/1 var(--mono);flex:none}
+.bmap{list-style:none;margin:20px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px 32px}
+.bmap li{display:flex;gap:12px;align-items:flex-start;font-size:15px;min-width:0}
+.bmap li span small{display:block;color:var(--mute);font-size:13px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:18px;font-size:13px;color:var(--mute)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:12px;height:12px;border-radius:3px;background:var(--c);display:inline-block}
 .mapbox svg{display:block;min-width:640px;width:100%;height:auto}
 .zones{display:grid;grid-template-columns:repeat(3,1fr);gap:12px 24px;margin-top:20px;padding:0;list-style:none}
 .zones li{display:flex;gap:10px;font-size:14px;min-width:0}
@@ -145,7 +155,8 @@ blockquote em{font-style:normal;color:var(--saturn)}
 .targets b{color:var(--saturn)}
 .booths{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
 .booth{background:var(--sky);padding:20px;min-width:0}
-.booth .no{font-family:var(--mono);font-size:13px;color:var(--mute)}
+.booth .no{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--c,var(--line));color:var(--sky-deep);font:700 13px/1 var(--mono)}
+.booth .cat{font-size:12px;color:var(--c);margin-left:8px;vertical-align:middle}
 .booth h4{font-size:17px;margin:4px 0 6px}
 .booth p{font-size:14px;color:var(--mute);margin:0}
 .booth .rw{display:inline-block;margin-top:8px;font-size:12px;color:var(--saturn);border:1px solid var(--saturn);border-radius:999px;padding:1px 8px}
@@ -181,6 +192,7 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--mute
   .booths{grid-template-columns:repeat(2,1fr)}
   .wx{grid-template-columns:repeat(2,1fr)}
   .zones{grid-template-columns:repeat(2,1fr)}
+  .bmap{grid-template-columns:1fr}
   .axes{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:520px){
@@ -284,8 +296,8 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--mute
       <div class="axes">
         <div><b>별빛 관측 존</b><span>김해천문대 망원경 천체관측 5회차 · 자유관측 · 18:00 소등 세리머니</span></div>
         <div><b>별빛 문화공연</b><span>석양과 밤하늘 아래 잔잔한 어쿠스틱 · 피날레 랜턴 소등</span></div>
-        <div><b>별빛 체험 존</b><span>별자리 랜턴 · 스탬프 미션 · 별빛 네컷 · 별똥별 뽑기</span></div>
-        <div><b>가족 피크닉 존</b><span>돗자리 펴고 쉬는 무대 앞 잔디 · 별빛 다방 · 레크리에이션</span></div>
+        <div><b>별빛 체험 존</b><span>별자리 랜턴 · 태양계 몸무게 · 인생네컷 · 과자뽑기 · 스탬프 미션</span></div>
+        <div><b>가족 피크닉 존</b><span>운동장 한가운데 돗자리 자리 · 별빛다방 · 레크리에이션</span></div>
       </div>
     </div>
   </section>
@@ -294,63 +306,42 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--mute
     <div class="wrap">
       <div class="sh"><h2>행사일정</h2><p>해가 지는 순간부터 별이 뜨는 순간까지</p></div>
       <ol class="tt">
-        <li class="key" style="--c:#F2B56B"><span class="dot"></span><time>17:00</time><div><b>개장 · 관측권 배부 시작</b><span>천체관측 예약 가족은 등록부스에서 예약 확인 후 색깔 관측권 수령. 별빛 체험 존 동시 개장</span></div></li>
+        <li class="key" style="--c:#F2B56B"><span class="dot"></span><time>17:00</time><div><b>개장 · 관측권 배부 시작</b><span>천체관측 예약 가족은 ⑨ 천체관측 등록소에서 예약 확인 후 색깔 관측권 수령. 별빛 체험 존 동시 개장</span></div></li>
         <li style="--c:#EFA06A"><span class="dot"></span><time>17:05</time><div><b>별빛 문화공연 1부 · 어쿠스틱</b><span>석양 무렵의 첫 무대, 스탬프 미션 시작</span></div></li>
         <li style="--c:#DB8370"><span class="dot"></span><time>17:30</time><div><b>해넘이</b><span>가족 피크닉 존에서 해 지는 하늘을 함께 봅니다</span></div></li>
         <li style="--c:#A9677F"><span class="dot"></span><time>17:45</time><div><b>개회식</b><span>15분</span></div></li>
         <li class="key" style="--c:#6B5A8E"><span class="dot"></span><time>18:00</time><div><b>소등 세리머니</b><span>10초 카운트다운 → 조명탑 순차 소등 → 90초 눈 적응 → 육안 별자리 해설</span></div></li>
-        <li class="key" style="--c:#3B4583"><span class="dot"></span><time>18:10</time><div><b>별빛 관측 존 · 천체관측 1~5회차</b><span>20분 간격 · 19:50 종료 / 무대 포토존 개방</span></div></li>
+        <li class="key" style="--c:#3B4583"><span class="dot"></span><time>18:10</time><div><b>별빛 관측 존 · 천체관측 1~5회차</b><span>20분 간격 · 19:50 종료</span></div></li>
         <li style="--c:#252E66"><span class="dot"></span><time>19:30</time><div><b>별빛 문화공연 2부 · 어쿠스틱</b><span>관측을 기다리는 가족을 위한 낮은 음량의 무대</span></div></li>
-        <li style="--c:#1E2658"><span class="dot"></span><time>19:50</time><div><b>자유 시간</b><span>육안 별 보기 · 별자리 퀴즈 · 별빛 네컷 · 별똥별 뽑기 (리워드 교환 20:40 마감)</span></div></li>
+        <li style="--c:#1E2658"><span class="dot"></span><time>19:50</time><div><b>자유 시간</b><span>육안 별 보기 · 별자리 퀴즈 · 인생네컷 · 과자뽑기 (리워드 교환 20:40 마감)</span></div></li>
         <li class="key" style="--c:#161D47"><span class="dot"></span><time>20:45</time><div><b>피날레 · 다 함께 부르는 노래</b><span>직접 만든 별자리 랜턴을 동시에 끕니다</span></div></li>
         <li style="--c:#0B1230;--c2:1"><span class="dot" style="border:1px solid var(--line)"></span><time>21:00</time><div><b>조명 재점등 · 귀가</b><span>종료와 동시에 운동장 조명을 다시 켭니다</span></div></li>
       </ol>
       <p class="note" style="margin-top:16px">행사 일정은 현장 상황과 기상에 따라 일부 바뀔 수 있습니다.</p>
 
-      <h3 style="margin-top:56px">현장 배치</h3>
-      <div class="mapbox" role="img" aria-label="진영공설운동장 현장 배치 개략도">
-        <svg viewBox="0 0 800 440" xmlns="http://www.w3.org/2000/svg">
-          <rect x="0" y="0" width="800" height="440" fill="#060A1C"/>
-          <rect x="120" y="60" width="560" height="320" rx="160" fill="none" stroke="#2A3468" stroke-width="26"/>
-          <rect x="146" y="86" width="508" height="268" rx="134" fill="#0F1A3A"/>
-          <!-- A 관측존 -->
-          <path d="M260 110 H540 Q560 110 560 130 V215 H240 V130 Q240 110 260 110Z" fill="#E0564A" fill-opacity=".14" stroke="#E0564A" stroke-dasharray="6 5"/>
-          <g fill="#F4EAD5"><circle cx="340" cy="150" r="7"/><circle cx="400" cy="138" r="7"/><circle cx="460" cy="150" r="7"/></g>
-          <g fill="#F4EAD5" fill-opacity=".55"><circle cx="275" cy="190" r="6"/><circle cx="525" cy="190" r="6"/></g>
-          <text x="400" y="190" fill="#F4EAD5" font-size="15" font-weight="700" text-anchor="middle" font-family="Noto Sans KR,sans-serif">A 별빛 관측 존</text>
-          <text x="400" y="207" fill="#A9B5E0" font-size="11" text-anchor="middle" font-family="Noto Sans KR,sans-serif">적색광 전용 · 메인 망원경 + 자유관측</text>
-          <!-- B 피크닉 -->
-          <rect x="250" y="240" width="300" height="80" rx="8" fill="#F2B544" fill-opacity=".1" stroke="#F2B544" stroke-opacity=".6"/>
-          <text x="400" y="286" fill="#F4EAD5" font-size="15" font-weight="700" text-anchor="middle" font-family="Noto Sans KR,sans-serif">B 가족 피크닉 존</text>
-          <!-- C 무대 -->
-          <rect x="350" y="392" width="100" height="26" rx="4" fill="#8FB3FF" fill-opacity=".25" stroke="#8FB3FF"/>
-          <text x="400" y="410" fill="#F4EAD5" font-size="12" font-weight="700" text-anchor="middle" font-family="Noto Sans KR,sans-serif">C 문화공연·포토존</text>
-          <!-- D 부스존 U -->
-          <g fill="#7FD1B9" fill-opacity=".25" stroke="#7FD1B9">
-            <rect x="24" y="120" width="60" height="34" rx="4"/><rect x="24" y="162" width="60" height="34" rx="4"/><rect x="24" y="204" width="60" height="34" rx="4"/><rect x="24" y="246" width="60" height="34" rx="4"/><rect x="24" y="288" width="60" height="34" rx="4"/>
-            <rect x="716" y="120" width="60" height="34" rx="4"/><rect x="716" y="162" width="60" height="34" rx="4"/><rect x="716" y="204" width="60" height="34" rx="4"/><rect x="716" y="246" width="60" height="34" rx="4"/>
-          </g>
-          <rect x="716" y="288" width="60" height="34" rx="4" fill="#E99AC4" fill-opacity=".25" stroke="#E99AC4"/>
-          <text x="54" y="105" fill="#F4EAD5" font-size="13" font-weight="700" text-anchor="middle" font-family="Noto Sans KR,sans-serif">D 별빛 체험 존</text>
-          <text x="746" y="105" fill="#F4EAD5" font-size="13" font-weight="700" text-anchor="middle" font-family="Noto Sans KR,sans-serif">D 별빛 체험 존</text>
-          <text x="746" y="342" fill="#F4EAD5" font-size="12" font-weight="700" text-anchor="middle" font-family="Noto Sans KR,sans-serif">E 별빛 다방</text>
-          <!-- HQ -->
-          <rect x="24" y="352" width="96" height="40" rx="6" fill="#F2B544"/>
-          <text x="72" y="377" fill="#060A1C" font-size="12" font-weight="700" text-anchor="middle" font-family="Noto Sans KR,sans-serif">본부·등록부스</text>
-          <text x="72" y="418" fill="#A9B5E0" font-size="11" text-anchor="middle" font-family="Noto Sans KR,sans-serif">진입로</text>
-          <path d="M72 404 V396" stroke="#A9B5E0" stroke-width="2"/>
-          <text x="400" y="40" fill="#A9B5E0" font-size="12" text-anchor="middle" font-family="Noto Sans KR,sans-serif">▲ 북측</text>
-        </svg>
+      <h3 style="margin-top:56px">현장 배치도</h3>
+      <a class="mapimg" href="map.jpg" target="_blank" rel="noopener" aria-label="현장 배치도 크게 보기"><img src="map.jpg" alt="진영공설운동장 현장 배치도. 왼쪽 출입구에서 입장·퇴장 동선이 나뉘고, 가운데 가족 피크닉 존(돗자리)을 1~8번 부스가 둘러싸며, 오른쪽에 9번 천체관측 등록소와 망원경 5대가 놓인 별자리 관측 존이 있습니다." width="2400" height="1473" loading="lazy"></a>
+      <p class="note" style="margin-top:8px">배치도를 누르면 크게 볼 수 있어요. 실제 배치는 현장 여건에 따라 조금 달라질 수 있습니다.</p>
+      <div class="legend" aria-hidden="true">
+        <span class="c-info"><i></i>종합안내·등록</span><span class="c-exp"><i></i>체험 부스</span><span class="c-photo"><i></i>포토·리워드</span><span class="c-rest"><i></i>휴식</span><span class="c-obs"><i></i>천체관측</span><span class="c-sys"><i></i>운영 시스템</span>
       </div>
-      <ul class="zones">
-        <li><b>A</b><span>별빛 관측 존 — 메인 망원경 회차 관측, 서브 망원경 자유관측. 붉은 빛만 사용합니다</span></li>
-        <li><b>B</b><span>가족 피크닉 존 — 돗자리를 펴고 쉬는 곳. 무대 정면</span></li>
-        <li><b>C</b><span>별빛 문화공연 무대·포토존 — 공연이 없을 때 가족 포토존으로 개방</span></li>
-        <li><b>D</b><span>별빛 체험 존 — 진입로부터 트랙 바깥으로 이어지는 체험부스</span></li>
-        <li><b>E</b><span>별빛 다방 — 따뜻한 음료, 추울 때 쉬어 가는 곳</span></li>
-        <li><b>★</b><span>본부·등록부스 — 천체관측 예약 확인·관측권 배부, 미아 보호, 응급 대응</span></li>
+      <ol class="bmap" aria-label="부스 번호 안내">
+        <li class="c-info"><b class="num">1</b><span>별자리등록소(스탬프맵) · 종합안내 · 의료지원<small>스탬프맵 받기, 행사 안내, 미아 보호, 응급 처치</small></span></li>
+        <li class="c-photo"><b class="num">2</b><span>과자뽑기<small>미션 코인으로 과자 뽑기 · 리워드 교환처</small></span></li>
+        <li class="c-rest"><b class="num">3</b><span>별빛다방<small>따뜻한 음료, 추울 때 쉬어 가는 곳</small></span></li>
+        <li class="c-exp"><b class="num">4</b><span>별빛 소원 우체통<small>1년 뒤 배달되는 가족 엽서</small></span></li>
+        <li class="c-exp"><b class="num">5</b><span>태양계 몸무게<small>리워드 미션 ②</small></span></li>
+        <li class="c-photo"><b class="num">6</b><span>인생네컷 포토부스<small>운영 시간 내 무제한</small></span></li>
+        <li class="c-exp"><b class="num">7</b><span>별자리 랜턴 만들기<small>피날레 소등 때 함께 써요</small></span></li>
+        <li class="c-exp"><b class="num">8</b><span>야광 페이스페인팅<small>어두워질수록 빛나는 무늬</small></span></li>
+        <li class="c-obs"><b class="num">9</b><span>천체관측 등록소<small>예약 확인 · 회차별 관측권 배부 · 결원 시 현장 접수</small></span></li>
+        <li class="c-sys"><b class="num">10</b><span>운영 시스템<small>행사 운영석</small></span></li>
+      </ol>
+      <ul class="zones" style="margin-top:24px">
+        <li><b>★</b><span><strong>별자리 관측 존</strong> — 망원경 5대. 적색광만 사용하고, 차단봉과 가림막 파티션으로 구분된 공간입니다. 관측권 회차에 맞춰 안내에 따라 입장해요</span></li>
+        <li><b>★</b><span><strong>가족 피크닉 존</strong> — 운동장 한가운데 돗자리 자리. 부스들이 이 자리를 둘러싸고 있어요</span></li>
+        <li><b>★</b><span><strong>출입구</strong> — 입장·퇴장 동선이 나뉘어 있습니다. 안내 요원을 따라 이동해 주세요</span></li>
       </ul>
-      <p class="note" style="margin-top:12px">개략도입니다. 실제 배치는 현장 여건에 따라 달라질 수 있습니다.</p>
     </div>
   </section>
 
@@ -380,12 +371,12 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--mute
           <h3>참여 방법</h3>
           <ol class="steps">
             <li><span><b>김해시공공예약 포털에서 예약</b><br><span class="note">선착순으로 회차를 골라 신청합니다. 포스터의 QR로도 들어갈 수 있어요.</span><br><a class="btn solid" href="https://m.site.naver.com/2iGAe" target="_blank" rel="noopener" style="margin-top:8px;padding:8px 16px;font-size:14px">예약 페이지 열기 ↗</a></span></li>
-            <li><span><b>당일 등록부스에서 색깔 관측권 받기</b><br><span class="note">17:00부터 예약 확인 후 회차별 관측권을 드립니다.</span></span></li>
+            <li><span><b>당일 ⑨ 천체관측 등록소에서 색깔 관측권 받기</b><br><span class="note">17:00부터 예약 확인 후 회차별 관측권을 드립니다.</span></span></li>
             <li><span><b>회차 시작 5분 전, 관측존 입구 집결</b><br><span class="note">큰 화면으로 오늘 볼 별을 먼저 보고, 가족 단위로 망원경을 돌며 관측합니다.</span></span></li>
           </ol>
           <div class="box" style="margin-top:20px">
             <b>예약을 못 했어도 괜찮아요</b>
-            <p class="note" style="margin:6px 0 0">관측존 옆 자유관측 망원경은 신청 없이 줄 서서 볼 수 있습니다(18:10~19:50). 예약 취소나 불참으로 결원이 생긴 회차는 당일 등록부스에서 일부 현장 접수하고, 회차 시작 시각까지 오지 않은 자리는 현장 대기 가족에게 순서대로 넘겨 드립니다.</p>
+            <p class="note" style="margin:6px 0 0">관측존 옆 자유관측 망원경은 신청 없이 줄 서서 볼 수 있습니다(18:10~19:50). 예약 취소나 불참으로 결원이 생긴 회차는 당일 ⑨ 천체관측 등록소에서 일부 현장 접수하고, 회차 시작 시각까지 오지 않은 자리는 현장 대기 가족에게 순서대로 넘겨 드립니다.</p>
           </div>
         </div>
       </div>
@@ -393,23 +384,23 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--mute
       <h3>별빛 체험 존</h3>
       <p class="note">신청 없이 자유롭게 참여하세요. 운영 17:00~21:00</p>
       <div class="booths" style="margin-top:16px">
-        <div class="booth"><span class="no">01</span><h4>별자리 랜턴 만들기</h4><p>원통에 가을 별자리 구멍을 뚫고 불을 켜면 벽에 별자리가 비칩니다. 피날레 소등 때 함께 써요.</p></div>
-        <div class="booth"><span class="no">02</span><h4>가족 별자리 등록소</h4><p>가족 수만큼 별을 찍어 ‘우리 가족 별자리’ 카드를 만듭니다. 카드 뒷면이 스탬프 판.</p><span class="rw">리워드 ①</span></div>
-        <div class="booth"><span class="no">03</span><h4>태양계 몸무게 챌린지</h4><p>목성에서 우리 가족 몸무게 합은? 먼저 맞혀 보고 저울로 확인해요.</p><span class="rw">리워드 ②</span></div>
-        <div class="booth"><span class="no">04</span><h4>야광 페이스페인팅</h4><p>어두워질수록 빛나는 별·달·행성 무늬.</p></div>
-        <div class="booth"><span class="no">05</span><h4>빛 실험실</h4><p>프리즘으로 빛 나누기, 손전등 그림자극. 수련관 과학동아리 청소년이 운영합니다.</p></div>
-        <div class="booth"><span class="no">06</span><h4>별빛 소원 우체통</h4><p>가족 엽서를 쓰면 1년 뒤 2027년 11월에 배달됩니다.</p></div>
-        <div class="booth"><span class="no">07</span><h4>별빛 다방</h4><p>코코아·유자차 등 따뜻한 음료. 추울 때 쉬어 가는 곳.</p></div>
-        <div class="booth"><span class="no">08</span><h4>별빛 네컷</h4><p>행사 전용 프레임으로 찍는 가족 네컷 사진. 운영 시간 내 무제한.</p></div>
-        <div class="booth"><span class="no">09</span><h4>별똥별 뽑기</h4><p>미션으로 받은 코인으로 인형뽑기 기계에서 간식을 뽑아요. 리워드 교환처.</p><span class="rw">간식</span></div>
+        <div class="booth c-info"><span class="no">1</span><span class="cat">종합안내·등록</span><h4>별자리등록소 (스탬프맵)</h4><p>가족 수만큼 별을 찍어 ‘우리 가족 별자리’를 만들고, 스탬프맵을 받아 미션을 시작해요. 종합안내와 의료지원도 이곳에서 합니다.</p><span class="rw">리워드 ① 시작</span></div>
+        <div class="booth c-photo"><span class="no">2</span><span class="cat">포토·리워드</span><h4>과자뽑기</h4><p>미션으로 받은 코인으로 뽑기 기계에서 과자를 뽑아요. 리워드 교환처입니다.</p><span class="rw">간식</span></div>
+        <div class="booth c-rest"><span class="no">3</span><span class="cat">휴식</span><h4>별빛다방</h4><p>코코아·유자차 등 따뜻한 음료. 추울 때 쉬어 가는 곳.</p></div>
+        <div class="booth c-exp"><span class="no">4</span><span class="cat">체험</span><h4>별빛 소원 우체통</h4><p>가족 엽서를 쓰면 1년 뒤 2027년 11월에 배달됩니다.</p></div>
+        <div class="booth c-exp"><span class="no">5</span><span class="cat">체험</span><h4>태양계 몸무게</h4><p>목성에서 우리 가족 몸무게 합은? 먼저 맞혀 보고 저울로 확인해요.</p><span class="rw">리워드 ②</span></div>
+        <div class="booth c-photo"><span class="no">6</span><span class="cat">포토·리워드</span><h4>인생네컷 포토부스</h4><p>행사 전용 프레임으로 찍는 가족 네컷 사진. 운영 시간 내 무제한.</p></div>
+        <div class="booth c-exp"><span class="no">7</span><span class="cat">체험</span><h4>별자리 랜턴 만들기</h4><p>원통에 가을 별자리 구멍을 뚫고 불을 켜면 벽에 별자리가 비칩니다. 피날레 소등 때 함께 써요.</p></div>
+        <div class="booth c-exp"><span class="no">8</span><span class="cat">체험</span><h4>야광 페이스페인팅</h4><p>어두워질수록 빛나는 별·달·행성 무늬.</p></div>
+        <div class="booth c-obs"><span class="no">9</span><span class="cat">천체관측</span><h4>천체관측 등록소</h4><p>예약 확인 후 회차별 색깔 관측권을 드려요. 결원이 생기면 일부 현장 접수도 이곳에서 합니다.</p></div>
       </div>
 
       <div class="two">
         <div class="box">
           <h3>리워드 미션</h3>
-          <p><b>① 별자리 스탬프 미션</b><br><span class="note">가족 별자리 카드 받기 → 체험부스 4곳 이상 스탬프 → 만족도 조사 작성 → 별똥별 코인 2개 (가족당 1회)</span></p>
+          <p><b>① 별자리 스탬프 미션</b><br><span class="note">① 별자리등록소에서 스탬프맵 받기 → 체험부스 4곳 이상 스탬프 → 만족도 조사 작성 → 과자뽑기 코인 2개 (가족당 1회)</span></p>
           <p><b>② 태양계 몸무게 챌린지</b><br><span class="note">목성에서의 가족 몸무게 합 예측 → 저울로 확인 → 오차 10% 이내면 코인 1개. 참여 가족 모두 야광 별 스티커</span></p>
-          <p class="note" style="margin:0">코인은 별똥별 뽑기(9번 부스) 인형뽑기 기계에서 간식을 뽑는 데 씁니다. 간식이 모두 나가면 교환을 마감하고 스티커로 대신하며, 못 뽑은 아이에게는 야광 별 스티커를 드립니다. 리워드 교환 마감 20:40.</p>
+          <p class="note" style="margin:0">코인은 ② 과자뽑기 부스의 뽑기 기계에서 과자를 뽑는 데 씁니다. 간식이 모두 나가면 교환을 마감하고 스티커로 대신하며, 못 뽑은 아이에게는 야광 별 스티커를 드립니다. 리워드 교환 마감 20:40.</p>
         </div>
         <div class="box">
           <h3>별빛 문화공연 · 가족 피크닉 존</h3>
@@ -417,7 +408,7 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--mute
             <li><b>1부 17:05~17:45</b> 석양의 어쿠스틱 무대</li>
             <li><b>2부 19:30~20:10</b> 관측을 방해하지 않는 낮은 음량의 어쿠스틱</li>
             <li><b>피날레 20:45~21:00</b> 다 함께 부르는 노래와 랜턴 동시 소등</li>
-            <li><b>가족 피크닉 존</b> 무대 앞 잔디. 레크리에이션 17:20·18:20, 어두워진 뒤엔 가족 별자리 퀴즈</li>
+            <li><b>가족 피크닉 존</b> 운동장 한가운데 돗자리 자리. 레크리에이션 17:20·18:20, 어두워진 뒤엔 가족 별자리 퀴즈</li>
             <li><b>방한</b> 핫팩 배부, 무릎담요 대여(수량 한정)</li>
           </ul>
         </div>
@@ -450,7 +441,8 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--mute
           <h3>안전</h3>
           <ul>
             <li>아이들에게 야광 손목밴드를 채워 드립니다. 보호자 연락처를 적어 주세요.</li>
-            <li>아이를 잃어버렸다면 본부·등록부스 또는 별빛 다방으로 오세요.</li>
+            <li>아이를 잃어버렸거나 다친 사람이 있으면 ① 종합안내·의료지원 부스나 가까운 안내 요원에게 알려 주세요.</li>
+            <li>행사장 내에는 외부음식물 반입을 금지합니다. 따뜻한 음료는 ③ 별빛다방을 이용해 주세요.</li>
             <li>행사 현장은 영상으로 기록됩니다.</li>
           </ul>
         </div>
@@ -489,13 +481,14 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--mute
       <div class="board">
         <div class="faq">
           <h3>자주 묻는 질문</h3>
-          <details open><summary>천체관측은 미리 신청해야 하나요?</summary><p>네. 천체관측체험만 <a href="https://m.site.naver.com/2iGAe" target="_blank" rel="noopener">김해시공공예약 포털</a>에서 선착순으로 사전 예약합니다. 행사 당일 17:00부터 등록부스에서 예약을 확인하고 회차별 색깔 관측권을 드려요. 공연·체험·피크닉은 신청 없이 참여할 수 있습니다.</p></details>
-          <details><summary>예약을 못 하면 망원경을 볼 수 없나요?</summary><p>관측존 옆 자유관측 망원경은 신청 없이 줄 서서 볼 수 있습니다(18:10~19:50). 결원이 생긴 회차는 당일 등록부스에서 일부 현장 접수하고, 회차 시작 시각까지 오지 않은 자리는 현장에서 기다리는 가족에게 순서대로 넘겨 드립니다.</p></details>
-          <details><summary>체험부스도 신청해야 하나요?</summary><p>아니요. 체험부스, 공연, 피크닉존, 별빛 네컷은 신청 없이 자유롭게 이용합니다. 스탬프 미션을 완료하면 간식을 뽑을 수 있는 별똥별 뽑기 코인을 드려요.</p></details>
+          <details open><summary>천체관측은 미리 신청해야 하나요?</summary><p>네. 천체관측체험만 <a href="https://m.site.naver.com/2iGAe" target="_blank" rel="noopener">김해시공공예약 포털</a>에서 선착순으로 사전 예약합니다. 행사 당일 17:00부터 ⑨ 천체관측 등록소에서 예약을 확인하고 회차별 색깔 관측권을 드려요. 공연·체험·피크닉은 신청 없이 참여할 수 있습니다.</p></details>
+          <details><summary>예약을 못 하면 망원경을 볼 수 없나요?</summary><p>관측존 옆 자유관측 망원경은 신청 없이 줄 서서 볼 수 있습니다(18:10~19:50). 결원이 생긴 회차는 당일 ⑨ 천체관측 등록소에서 일부 현장 접수하고, 회차 시작 시각까지 오지 않은 자리는 현장에서 기다리는 가족에게 순서대로 넘겨 드립니다.</p></details>
+          <details><summary>체험부스도 신청해야 하나요?</summary><p>아니요. 체험부스, 공연, 피크닉 존, 인생네컷은 신청 없이 자유롭게 이용합니다. 스탬프 미션을 완료하면 ② 과자뽑기 코인을 드려요.</p></details>
           <details><summary>비가 오거나 흐리면 어떻게 되나요?</summary><p>흐리면 밝은 천체 위주로 관측하고, 어려운 회차는 큰 화면 천체영상과 별자리 해설로 진행합니다. 비나 강풍이면 김해시청소년수련관 실내로 옮기거나 일정을 미룹니다. 기상 판단은 11. 4.(수) 18:00 1차, 당일 12:00 최종으로 하며 결과를 공지합니다.</p></details>
           <details><summary>무엇을 챙겨 가면 좋을까요?</summary><p>11월 저녁 야외라 꽤 춥습니다. 돗자리와, 필요에 따라 따뜻한 겉옷과 담요를 챙겨 주세요. 현장에서 핫팩을 나눠 드리고 무릎담요를 수량 한정으로 빌려 드립니다.</p></details>
+          <details><summary>음식을 가져가도 되나요?</summary><p>행사장 내에는 외부음식물 반입을 금지합니다. 따뜻한 음료는 ③ 별빛다방에서, 과자는 스탬프 미션 후 ② 과자뽑기에서 받을 수 있어요.</p></details>
           <details><summary>주차할 곳이 있나요?</summary><p>운동장 주차장과 인근 주차 공간을 이용할 수 있지만 넉넉하지 않습니다. 가까운 분은 걸어서 와 주세요. 21:00 종료 후 10분간은 걷는 분이 먼저 나가고 차량은 순서대로 나갑니다.</p></details>
-          <details><summary>아이를 잃어버리면 어디로 가야 하나요?</summary><p>아이들에게 보호자 연락처를 적는 야광 손목밴드를 채워 드립니다. 아이를 찾을 때는 본부·등록부스나 별빛 다방으로 오세요. 현장 방송과 전 부스가 함께 찾습니다.</p></details>
+          <details><summary>아이를 잃어버리면 어디로 가야 하나요?</summary><p>아이들에게 보호자 연락처를 적는 야광 손목밴드를 채워 드립니다. 아이를 찾을 때는 ① 종합안내 부스나 가까운 안내 요원에게 알려 주세요. 현장 방송과 전 부스가 함께 찾습니다.</p></details>
         </div>
         <form class="ask" id="askform" novalidate>
           <h3 style="margin:0">문의 남기기</h3>
