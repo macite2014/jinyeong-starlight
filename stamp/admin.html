@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0A1129">
+<title>운영 현황판 · 별자리 스탬프 투어</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:"Cafe24 Anemone";src:url(../cafe24-anemone.woff2) format("woff2");font-display:swap}
+:root{--sky:#0A1129;--deep:#050A1E;--panel:#141C45;--line:#2A3468;--star:#F4EAD5;--mute:#A9B5E0;--dim:#6C77A8;--gold:#F2B544;--mint:#7FD1B9;--lav:#C9A8FF;--red:#E0564A;--blue:#8FB3FF}
+*{box-sizing:border-box}
+body{margin:0;background:var(--deep);color:var(--star);font-family:"Noto Sans KR",system-ui,sans-serif;line-height:1.5;word-break:keep-all}
+.wrap{max-width:1180px;margin:0 auto;padding:20px 16px 60px}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;justify-content:space-between;margin-bottom:16px}
+h1{font-family:"Cafe24 Anemone",sans-serif;font-weight:400;font-size:28px;margin:0}
+.sub{color:var(--mute);font-size:13px}
+.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+a.b,button.b{border:1px solid var(--line);background:var(--panel);color:var(--star);border-radius:10px;padding:8px 12px;font:inherit;font-size:13px;text-decoration:none;cursor:pointer}
+a.b.pri{background:var(--gold);color:var(--deep);border-color:var(--gold);font-weight:700}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:720px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi .v small.blk{display:block;font-size:12px;margin-top:2px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.kpi .l{font-size:12px;color:var(--mute)}
+.kpi .v{font-size:30px;font-weight:900;line-height:1.2;font-variant-numeric:tabular-nums}
+.kpi .v small{font-size:14px;color:var(--mute);font-weight:500}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px;margin-top:12px}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}
+.box h2{font-size:15px;margin:0 0 12px;font-weight:700}
+.row{display:grid;grid-template-columns:minmax(90px,38%) 1fr 44px;gap:8px;align-items:center;font-size:13px;margin:6px 0}
+.row .n{color:var(--mute);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.row .t{height:12px;background:#0A1129;border-radius:6px;overflow:hidden}
+.row .t i{display:block;height:100%;background:var(--c,var(--gold));border-radius:6px}
+.row .v{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.empty{color:var(--dim);font-size:13px}
+.cols{display:flex;align-items:flex-end;gap:4px;height:120px;padding-top:8px}
+.cols div{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;font-size:10px;color:var(--dim)}
+.cols i{display:block;width:100%;background:var(--blue);border-radius:4px 4px 0 0;min-height:1px}
+.cols b{font-size:11px;color:var(--star);font-weight:700}
+.cm{font-size:13px;border-left:3px solid var(--line);padding:4px 10px;margin:8px 0;color:var(--star)}
+.login{max-width:380px;margin:12vh auto;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px}
+.login input{width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--deep);color:var(--star);font:inherit;margin:12px 0}
+.login button{width:100%;padding:12px;border:0;border-radius:10px;background:var(--gold);font:inherit;font-weight:900;cursor:pointer}
+.err{color:var(--red);font-size:13px;min-height:1em}
+.hidden{display:none!important}
+.big3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.big3 div{background:#0A1129;border-radius:10px;padding:10px 4px}
+.big3 b{display:block;font-size:24px}
+.big3 span{font-size:12px;color:var(--mute)}
+</style>
+</head>
+<body>
+<div id="login" class="login hidden">
+  <h1>운영 현황판</h1>
+  <p class="sub">별자리 스탬프 투어 · 운영자 전용</p>
+  <input id="key" type="password" placeholder="운영자 비밀번호" autocomplete="current-password">
+  <button id="go" type="button">들어가기</button>
+  <p id="lerr" class="err"></p>
+</div>
+
+<div id="app" class="wrap hidden">
+  <header>
+    <div><h1>별자리 스탬프 투어 · 운영 현황</h1><div class="sub">2026 가을밤 가족 별빛축제 · <span id="upd">불러오는 중…</span> · 30초마다 자동 새로고침</div></div>
+    <div class="tools"><a id="sheet" class="b pri" target="_blank" rel="noopener">📄 전체 데이터(구글 시트)</a><button class="b" id="refresh" type="button">새로고침</button><button class="b" id="logout" type="button">나가기</button></div>
+  </header>
+  <section class="kpis" id="kpis"></section>
+  <section class="grid" id="grid"></section>
+</div>
+
+<script src="config.js"></script>
+<script>
+(function(){
+var API=(window.STAMP_CONFIG&&window.STAMP_CONFIG.API_URL)||'';
+var $=function(i){return document.getElementById(i)};
+var KK='starlight-admin-key';
+function getKey(){try{return localStorage.getItem(KK)||''}catch(e){return''}}
+function setKey(v){try{v?localStorage.setItem(KK,v):localStorage.removeItem(KK)}catch(e){}}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+
+var key=getKey(), timer=null;
+function showLogin(msg){$('app').classList.add('hidden');$('login').classList.remove('hidden');$('lerr').textContent=msg||'';clearInterval(timer)}
+$('go').onclick=function(){key=$('key').value.trim();if(!key)return;setKey(key);load(true)};
+$('key').onkeydown=function(e){if(e.key==='Enter')$('go').click()};
+$('logout').onclick=function(){setKey('');key='';showLogin()};
+$('refresh').onclick=function(){load()};
+
+function load(first){
+  if(!API){showLogin('config.js에 데이터 수집 주소(API_URL)가 아직 설정되지 않았어요.');return}
+  if(!key){showLogin();return}
+  fetch(API+'?action=summary&key='+encodeURIComponent(key)+'&_='+Date.now()).then(function(r){return r.json()}).then(function(d){
+    if(!d.ok){setKey('');showLogin(d.error==='key'?'비밀번호가 맞지 않아요.':'오류: '+d.error);return}
+    $('login').classList.add('hidden');$('app').classList.remove('hidden');draw(d);
+    if(first||!timer){clearInterval(timer);timer=setInterval(load,30000)}
+  }).catch(function(){ $('upd').textContent='연결 실패 — 잠시 후 다시 시도합니다'; if(first)showLogin('데이터 서버에 연결하지 못했어요.')});
+}
+
+function entries(o,order){var a=Object.keys(o||{}).map(function(k){return[k,o[k]]});if(order){a.sort(function(x,y){var i=order.indexOf(x[0]),j=order.indexOf(y[0]);return(i<0?99:i)-(j<0?99:j)})}else a.sort(function(x,y){return y[1]-x[1]});return a}
+function bars(title,o,opt){opt=opt||{};var a=entries(o,opt.order),max=Math.max.apply(null,a.map(function(x){return x[1]}).concat([1])),tot=a.reduce(function(s,x){return s+x[1]},0);
+  var h='<div class="box"><h2>'+title+'</h2>';
+  if(!a.length)h+='<div class="empty">아직 데이터가 없어요</div>';
+  a.forEach(function(x){h+='<div class="row"><span class="n" title="'+esc(x[0])+'">'+esc(x[0])+'</span><span class="t"><i style="width:'+(x[1]/max*100)+'%;--c:'+(opt.c||'var(--gold)')+'"></i></span><span class="v">'+x[1]+(opt.pct&&tot?'<small style="color:var(--dim);font-weight:400"> '+Math.round(x[1]/tot*100)+'%</small>':'')+'</span></div>'});
+  return h+'</div>'}
+function cols(title,o){var a=entries(o).sort(function(x,y){return x[0]<y[0]?-1:1}),max=Math.max.apply(null,a.map(function(x){return x[1]}).concat([1]));
+  var h='<div class="box"><h2>'+title+'</h2>';if(!a.length)return h+'<div class="empty">아직 데이터가 없어요</div></div>';
+  h+='<div class="cols">'+a.map(function(x){return '<div><b>'+x[1]+'</b><i style="height:'+(x[1]/max*85)+'%"></i>'+x[0]+'</div>'}).join('')+'</div>';return h+'</div>'}
+function kpi(l,v,s){return '<div class="kpi"><div class="l">'+l+'</div><div class="v">'+(v==null?'–':v)+(s?' <small>'+s+'</small>':'')+'</div></div>'}
+
+function draw(d){
+  var t=d.totals,sv=d.survey,av=sv.avg;
+  $('upd').textContent='업데이트 '+new Date(d.updated).toLocaleTimeString('ko-KR');
+  $('sheet').href=d.sheetUrl;
+  var snack=(d.reward||{})['과자뽑기']||0, cafe=(d.reward||{})['별빛다방']||0;
+  $('kpis').innerHTML=kpi('등록 가족',t.families,'팀')+kpi('총 참여 인원',t.people,'명<small class="blk">어른 '+t.adults+' · 어린이 '+t.kids+'</small>')+kpi('찍힌 스탬프',t.stamps,'개')+kpi('과자뽑기 사용',snack,'가족')+kpi('별빛다방 사용',cafe,'가족')+kpi('만족도 응답',t.surveys,'건')+kpi('전반적 만족도',av.overall,'/ 5')+kpi('추천지수 NPS',sv.nps,sv.npsN?'('+sv.npsN+'명)':'');
+  var g='';
+  var BN=['태양계 몸무게','별빛 소원 우체통','별자리 랜턴 만들기','야광 페이스페인팅','인생네컷 포토부스','천체관측','센터 만들기 체험'],bo={};BN.forEach(function(n){bo[n]=(d.booth||{})[n]||0});
+  g+=bars('부스별 스탬프 (참여 가족 수)',bo,{c:'var(--mint)'});
+  g+=bars('가족당 스탬프 개수 분포',d.dist,{order:['1개','2개','3개','4개','5개','6개','7개'],c:'var(--blue)',pct:true});
+  g+=cols('시간대별 스탬프 (30분 단위)',d.stampTime);
+  g+=cols('시간대별 신규 등록 (30분 단위)',d.regTime);
+  g+='<div class="box"><h2>만족도 평균 (5점)</h2><div class="big3"><div><b>'+(av.overall==null?'–':av.overall)+'</b><span>전반</span></div><div><b>'+(av.program==null?'–':av.program)+'</b><span>프로그램</span></div><div><b>'+(av.operation==null?'–':av.operation)+'</b><span>운영·안내</span></div></div><div class="big3" style="margin-top:8px;grid-template-columns:1fr 1fr"><div><b>'+(av.revisit==null?'–':av.revisit)+'</b><span>재참여 의향</span></div><div><b>'+(sv.nps==null?'–':sv.nps)+'</b><span>NPS (−100~100)</span></div></div></div>';
+  g+=bars('가장 재미있었던 프로그램',sv.best,{pct:true});
+  g+=bars('내년에도 있었으면 하는 프로그램',sv.again,{c:'var(--mint)'});
+  g+=bars('아쉬웠던 점',sv.pain,{c:'var(--red)'});
+  g+=bars('내년에 새로 원하는 프로그램',sv.wish,{c:'var(--lav)'});
+  g+=bars('선호 개최 시기',sv.when,{c:'var(--blue)'});
+  g+=bars('머문 시간',sv.stay,{order:['1시간 미만','1~2시간','2~3시간','3시간 이상'],pct:true});
+  g+=bars('거주지',d.demo.region,{pct:true,c:'var(--blue)'});
+  g+=bars('응답자 연령대',d.demo.age,{order:['10대','20대','30대','40대','50대','60대 이상'],pct:true});
+  g+=bars('응답자 성별',d.demo.gender,{pct:true,c:'var(--lav)'});
+  g+=bars('자녀 연령',d.demo.kidAges,{order:['영유아(0~6세)','초등 1~3학년','초등 4~6학년','중학생','고등학생','자녀 동반 안 함'],c:'var(--mint)'});
+  g+=bars('알게 된 경로',d.demo.channel,{c:'var(--gold)'});
+  g+='<div class="box"><h2>자유 의견 (최근 30건)</h2>'+(sv.comments.length?sv.comments.map(function(c){return '<div class="cm">'+esc(c)+'</div>'}).join(''):'<div class="empty">아직 의견이 없어요</div>')+'</div>';
+  $('grid').innerHTML=g;
+}
+load(true);
+})();
+</script>
+</body>
+</html>

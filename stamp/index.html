@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0A1129">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="2026 가을밤 가족 별빛축제 — 별자리 스탬프 투어">
+<title>별자리 스탬프 투어 · 2026 가을밤 가족 별빛축제</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:"Cafe24 Anemone";src:url(../cafe24-anemone.woff2) format("woff2");font-weight:400;font-display:swap}
+:root{
+  --sky:#0A1129;--deep:#050A1E;--panel:#141C45;--panel2:#1B2558;--line:#2A3468;
+  --star:#F4EAD5;--mute:#A9B5E0;--dim:#6C77A8;--hl:#F4E33A;--gold:#F2B544;--saturn:#EE9A4D;
+  --mint:#7FD1B9;--lav:#C9A8FF;--pink:#E99AC4;--red:#E0564A;--blue:#8FB3FF;--ok:#7FD1B9;
+  --title:"Cafe24 Anemone","Noto Sans KR",sans-serif;
+  --body:"Noto Sans KR","Apple SD Gothic Neo",system-ui,sans-serif;
+  --r:16px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--deep);color:var(--star);font-family:var(--body);font-size:16px;line-height:1.55;word-break:keep-all}
+body{min-height:100dvh;background:
+  radial-gradient(1px 1px at 12% 8%,#fff8 50%,transparent 51%),radial-gradient(1px 1px at 78% 14%,#fff9 50%,transparent 51%),
+  radial-gradient(1.5px 1.5px at 40% 22%,#fffa 50%,transparent 51%),radial-gradient(1px 1px at 88% 40%,#fff7 50%,transparent 51%),
+  radial-gradient(1px 1px at 22% 55%,#fff6 50%,transparent 51%),radial-gradient(1.5px 1.5px at 64% 70%,#fff8 50%,transparent 51%),
+  radial-gradient(1px 1px at 8% 86%,#fff7 50%,transparent 51%),radial-gradient(1px 1px at 92% 92%,#fff6 50%,transparent 51%),
+  radial-gradient(120% 60% at 50% 0%,#1B2558 0%,var(--sky) 45%,var(--deep) 100%);background-attachment:fixed}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+.wrap{max-width:480px;margin:0 auto;padding:0 16px calc(120px + env(safe-area-inset-bottom))}
+.hidden{display:none!important}
+h1,h2,h3{margin:0;font-weight:400}
+.ttl{font-family:var(--title);letter-spacing:-.01em}
+.eyebrow{font-size:12px;letter-spacing:.14em;color:var(--gold);font-weight:700}
+.muted{color:var(--mute)}
+.small{font-size:13px}
+
+/* top bar */
+.top{display:flex;align-items:center;justify-content:space-between;padding:calc(14px + env(safe-area-inset-top)) 0 10px}
+.brand{font-family:var(--title);font-size:15px;color:var(--mute)}
+.brand b{color:var(--star);font-weight:400}
+.chip{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--mute);background:#0A112999}
+
+/* intro */
+.hero{padding:26px 0 8px;text-align:center}
+.hero h1{font-family:var(--title);font-size:40px;line-height:1.15;margin:10px 0 8px;color:var(--star)}
+.hero h1 span{color:var(--hl)}
+.hero p{margin:0;color:var(--mute)}
+.steps{display:grid;gap:8px;margin:22px 0}
+.step{display:flex;gap:12px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px}
+.step .n{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:var(--deep);font-weight:900;font-size:14px}
+.step b{display:block}
+.step span{font-size:14px;color:var(--mute)}
+
+/* cards & form */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px;margin:12px 0}
+.card h2{font-family:var(--title);font-size:22px;margin-bottom:4px}
+.q{margin:18px 0 0}
+.q>label,.q>.lbl{display:block;font-weight:700;margin-bottom:8px;font-size:15px}
+.q .req{color:var(--saturn);font-size:12px;margin-left:4px;font-weight:500}
+.q .hint{font-weight:400;color:var(--mute);font-size:13px}
+input[type=text],textarea,select{width:100%;background:var(--deep);border:1px solid var(--line);border-radius:12px;padding:12px 14px;outline:none}
+input[type=text]:focus,textarea:focus{border-color:var(--gold)}
+textarea{min-height:88px;resize:vertical}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt span{display:block;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--deep);font-size:14px;color:var(--mute);transition:.15s}
+.opt input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--deep);font-weight:700}
+.opt input:focus-visible+span{outline:2px solid var(--hl);outline-offset:2px}
+.counter{display:flex;align-items:center;justify-content:space-between;background:var(--deep);border:1px solid var(--line);border-radius:12px;padding:8px 10px 8px 14px;margin-bottom:8px}
+.counter .ctl{display:flex;align-items:center;gap:12px}
+.counter button{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--panel2);font-size:20px;line-height:1}
+.counter output{min-width:20px;text-align:center;font-weight:900;font-size:18px}
+.consent{font-size:13px;color:var(--mute);background:var(--deep);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-top:18px}
+.consent ul{margin:6px 0 0;padding-left:18px}
+.check{display:flex;gap:10px;align-items:center;margin-top:12px;font-weight:700}
+.check input{width:22px;height:22px;accent-color:var(--gold)}
+.err{color:var(--red);font-size:13px;margin-top:10px;min-height:1em}
+
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:0;border-radius:14px;padding:16px;font-weight:900;font-size:17px;background:var(--gold);color:var(--deep)}
+.btn:active{transform:translateY(1px)}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--star);font-weight:700;font-size:15px;padding:13px}
+.btn.mint{background:var(--mint)}
+.btn[disabled]{opacity:.45}
+
+/* board */
+.who{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:10px 0 4px}
+.who h1{font-family:var(--title);font-size:26px;line-height:1.2}
+.who .id{font-size:12px;color:var(--dim);font-family:ui-monospace,monospace}
+.sky{position:relative;background:radial-gradient(90% 80% at 50% 40%,#1B2558,#0A1129);border:1px solid var(--line);border-radius:22px;overflow:hidden;margin-top:12px}
+.sky svg{display:block;width:100%;height:auto}
+.sky .count{position:absolute;left:16px;top:12px;font-family:var(--title);font-size:30px;line-height:1}
+.sky .count small{font-size:15px;color:var(--mute)}
+.sky .tag{position:absolute;right:14px;top:14px;font-size:12px;color:var(--mute)}
+.star-dot{transition:all .5s}
+.lbl-s{font-size:10px;fill:var(--mute);font-family:var(--body)}
+.lit .lbl-s{fill:var(--star);font-weight:700}
+@keyframes pop{0%{transform:scale(.2);opacity:0}60%{transform:scale(1.35);opacity:1}100%{transform:scale(1)}}
+.just{animation:pop .8s ease-out;transform-box:fill-box;transform-origin:center}
+
+.scanbar{position:fixed;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(transparent,var(--deep) 30%);z-index:20}
+.scanbar .in{max-width:448px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:8px}
+.scanbar .btn{box-shadow:0 8px 30px #F2B54455}
+.scanbar .pin{width:auto;padding:16px 16px;font-size:14px}
+
+.rewards{display:grid;gap:10px;margin-top:14px}
+.rw{display:flex;gap:14px;align-items:center;border-radius:var(--r);padding:16px;border:1px dashed var(--line);background:#0A112999;position:relative;overflow:hidden}
+.rw .ic{flex:none;width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:26px;background:var(--panel2)}
+.rw b{display:block;font-size:16px}
+.rw .s{font-size:13px;color:var(--mute)}
+.rw .st{margin-left:auto;flex:none;font-size:12px;font-weight:700;border-radius:999px;padding:4px 10px;background:var(--panel2);color:var(--mute)}
+.rw.on{border:1px solid var(--gold);background:linear-gradient(135deg,#2a2a4a,#3a2f2a)}
+.rw.on .ic{background:var(--gold)}
+.rw.on .st{background:var(--gold);color:var(--deep)}
+.rw.used{opacity:.75}
+.rw.used .st{background:var(--mint);color:var(--deep)}
+.bar{height:6px;border-radius:9px;background:var(--line);margin-top:8px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--gold);border-radius:9px;transition:width .6s}
+
+.sec-t{display:flex;justify-content:space-between;align-items:baseline;margin:26px 0 8px}
+.sec-t h3{font-family:var(--title);font-size:20px}
+.sec-t a{font-size:13px;color:var(--blue)}
+.booths{display:grid;gap:8px}
+.bt{display:flex;gap:12px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.bt .no{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:13px;background:var(--c,var(--line));color:var(--deep)}
+.bt .tx{flex:1;min-width:0}
+.bt b{display:block;font-size:15px}
+.bt .d{font-size:13px;color:var(--mute)}
+.bt .ok{flex:none;font-size:12px;font-weight:700;color:var(--dim);border:1px solid var(--line);border-radius:999px;padding:3px 9px}
+.bt.got{border-color:#7FD1B966;background:linear-gradient(90deg,#16304a,var(--panel))}
+.bt.got .ok{color:var(--deep);background:var(--mint);border-color:var(--mint)}
+
+.notice{font-size:13px;color:var(--mute);margin-top:22px;padding:14px;border-radius:14px;border:1px solid var(--line)}
+.notice b{color:var(--star)}
+.foot{text-align:center;font-size:12px;color:var(--dim);margin-top:26px}
+.foot button{background:none;border:0;color:var(--dim);text-decoration:underline;font-size:12px;padding:6px}
+
+.banner{border-radius:var(--r);padding:16px;margin-top:14px;background:linear-gradient(135deg,#F2B544,#EE9A4D);color:var(--deep)}
+.banner b{display:block;font-size:17px}
+.banner .btn{background:var(--deep);color:var(--star);margin-top:12px;font-size:15px;padding:13px}
+
+/* overlays */
+.ov{position:fixed;inset:0;z-index:50;background:radial-gradient(120% 60% at 50% 0%,#1B2558 0%,#0A1129 45%,#050A1E 100%);display:flex;flex-direction:column;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.ov .in{max-width:480px;width:100%;margin:auto;padding:calc(20px + env(safe-area-inset-top)) 16px calc(24px + env(safe-area-inset-bottom))}
+.x{position:absolute;right:12px;top:calc(10px + env(safe-area-inset-top));width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--panel);font-size:22px;z-index:3}
+.cam{position:relative;border-radius:22px;overflow:hidden;background:#000;aspect-ratio:3/4;margin-top:14px}
+.cam video{width:100%;height:100%;object-fit:cover;display:block}
+.cam .frame{position:absolute;inset:18%;border:3px solid var(--gold);border-radius:22px;box-shadow:0 0 0 999px #0007}
+.cam .scanline{position:absolute;left:18%;right:18%;height:2px;background:var(--hl);top:18%;animation:sl 2s linear infinite;box-shadow:0 0 12px var(--hl)}
+@keyframes sl{0%{top:19%}50%{top:81%}100%{top:19%}}
+.cam .msg{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:24px;color:var(--mute)}
+.pinrow{display:flex;gap:8px;margin-top:10px}
+.pinrow input{text-align:center;font-size:22px;letter-spacing:.3em;font-weight:900}
+.pinrow .btn{width:auto;padding:0 18px;font-size:15px}
+
+.result{text-align:center;padding-top:30px}
+.result .big{font-size:84px;line-height:1;margin:10px 0}
+.result h2{font-family:var(--title);font-size:30px;line-height:1.25}
+.result p{color:var(--mute);margin:10px 0 0}
+.result .btn{margin-top:24px}
+.unlock{margin-top:18px;padding:14px;border-radius:14px;background:var(--gold);color:var(--deep);font-weight:700}
+
+.ticket{position:relative;margin-top:18px;border-radius:22px;background:linear-gradient(160deg,#F4EAD5,#F2D9A8);color:var(--deep);padding:24px 20px;text-align:center;overflow:hidden}
+.ticket:before,.ticket:after{content:"";position:absolute;top:58%;width:28px;height:28px;border-radius:50%;background:var(--deep)}
+.ticket:before{left:-14px}.ticket:after{right:-14px}
+.ticket .k{font-size:13px;font-weight:700;letter-spacing:.1em;opacity:.7}
+.ticket h2{font-family:var(--title);font-size:34px;margin:6px 0}
+.ticket .fam{font-weight:700}
+.ticket .clock{font:900 34px/1 ui-monospace,monospace;margin-top:22px;padding-top:18px;border-top:2px dashed #050A1E44}
+.ticket .stampmark{display:inline-block;transform:rotate(-4deg);border:3px solid var(--red);color:var(--red);font-weight:900;padding:3px 14px;border-radius:10px;font-size:16px;margin-bottom:10px}
+.ticket.ok .stampmark{border-color:#1d8a6b;color:#1d8a6b}
+.twinkle{display:inline-block;animation:tw 1.2s ease-in-out infinite}
+@keyframes tw{50%{opacity:.25;transform:scale(.8)}}
+
+/* survey */
+.stars5{display:flex;gap:6px}
+.stars5 label{flex:1}
+.stars5 input{position:absolute;opacity:0}
+.stars5 span{display:grid;place-items:center;height:52px;border-radius:12px;border:1px solid var(--line);background:var(--deep);font-size:13px;color:var(--mute);line-height:1.1;text-align:center}
+.stars5 span em{font-style:normal;font-size:22px;display:block}
+.stars5 input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--deep);font-weight:700}
+.scale-cap{display:flex;justify-content:space-between;font-size:12px;color:var(--dim);margin-top:4px}
+.nps{display:grid;grid-template-columns:repeat(11,1fr);gap:3px}
+.nps label{position:relative}
+.nps input{position:absolute;opacity:0}
+.nps span{display:grid;place-items:center;height:40px;border-radius:8px;border:1px solid var(--line);background:var(--deep);font-size:13px;color:var(--mute)}
+.nps input:checked+span{background:var(--gold);color:var(--deep);font-weight:900;border-color:var(--gold)}
+.sv-sec{font-family:var(--title);font-size:18px;color:var(--gold);margin:28px 0 -4px}
+.progress{position:sticky;top:0;z-index:2;background:var(--deep);padding:10px 0}
+.done-badge{width:160px;height:160px;margin:10px auto;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,#F4E33A,#F2B544 60%,#EE9A4D);color:var(--deep);font-family:var(--title);font-size:22px;line-height:1.2;text-align:center;box-shadow:0 0 60px #F2B54477}
+.toast{position:fixed;left:50%;top:calc(16px + env(safe-area-inset-top));transform:translateX(-50%);background:var(--panel2);border:1px solid var(--line);padding:10px 16px;border-radius:999px;font-size:14px;z-index:90;opacity:0;transition:.3s;pointer-events:none;max-width:90vw}
+.toast.on{opacity:1}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- ============ 등록 화면 ============ -->
+<main id="vIntro" class="wrap hidden">
+  <div class="top"><div class="brand"><b>2026 가을밤</b> 가족 별빛축제</div><span class="chip">11.6 금 · 진영공설운동장</span></div>
+  <section class="hero">
+    <div class="eyebrow">STAMP TOUR</div>
+    <h1 class="ttl">별자리<br><span>스탬프 투어</span></h1>
+    <p>부스 7곳을 돌며 별을 하나씩 밝혀 보세요.<br>우리 가족만의 별자리가 완성돼요.</p>
+  </section>
+  <div class="steps">
+    <div class="step"><span class="n">1</span><div><b>체험하고 QR 찍기</b><span>체험이 끝나면 부스의 스탬프 QR을 찍어요</span></div></div>
+    <div class="step"><span class="n">2</span><div><b>별 3개 → 과자뽑기</b><span>② 과자뽑기 부스에서 한 번 뽑을 수 있어요</span></div></div>
+    <div class="step"><span class="n">3</span><div><b>별 5개 → 별빛다방 음료</b><span>③ 별빛다방에서 따뜻한 음료 한 잔</span></div></div>
+    <div class="step"><span class="n">4</span><div><b>만족도 조사 → 완주 배지</b><span>1분이면 끝나요. 내년 축제에 꼭 반영할게요</span></div></div>
+  </div>
+
+  <form id="regForm" class="card" novalidate>
+    <h2>우리 가족 별자리 등록</h2>
+    <p class="muted small" style="margin:0">가족 대표 한 분만 등록해 주세요. 이름·연락처는 받지 않아요.</p>
+
+    <div class="q"><label for="fFamily">우리 가족 별자리 이름 <span class="hint">(선택)</span></label>
+      <input id="fFamily" type="text" maxlength="14" placeholder="예) 하늘이네 별자리" autocomplete="off"></div>
+
+    <div class="q"><span class="lbl">응답하시는 분 성별<span class="req">필수</span></span>
+      <div class="opts" data-name="gender" data-type="radio"></div></div>
+
+    <div class="q"><span class="lbl">응답하시는 분 연령대<span class="req">필수</span></span>
+      <div class="opts" data-name="age" data-type="radio"></div></div>
+
+    <div class="q"><span class="lbl">사는 곳<span class="req">필수</span></span>
+      <div class="opts" data-name="region" data-type="radio"></div></div>
+
+    <div class="q"><span class="lbl">오늘 함께 온 인원 <span class="hint">(응답자 포함)</span></span>
+      <div class="counter"><span>어른</span><div class="ctl"><button type="button" data-step="adults:-1" aria-label="어른 줄이기">−</button><output id="oAdults">1</output><button type="button" data-step="adults:1" aria-label="어른 늘리기">+</button></div></div>
+      <div class="counter"><span>어린이·청소년</span><div class="ctl"><button type="button" data-step="kids:-1" aria-label="어린이 줄이기">−</button><output id="oKids">1</output><button type="button" data-step="kids:1" aria-label="어린이 늘리기">+</button></div></div></div>
+
+    <div class="q"><span class="lbl">함께 온 자녀 연령 <span class="hint">(모두 선택)</span></span>
+      <div class="opts" data-name="kidAges" data-type="checkbox"></div></div>
+
+    <div class="q"><span class="lbl">축제를 어떻게 알게 되셨나요? <span class="hint">(모두 선택)</span></span>
+      <div class="opts" data-name="channel" data-type="checkbox"></div></div>
+
+    <div class="consent">
+      <b style="color:var(--star)">개인정보 수집·이용 안내</b>
+      <ul>
+        <li>수집 항목: 성별, 연령대, 거주 지역, 동반 인원·자녀 연령, 인지 경로, 스탬프·리워드 이용 기록, 만족도 응답</li>
+        <li>이용 목적: 행사 운영(스탬프·리워드 확인), 결과 보고, 향후 행사 개선을 위한 통계</li>
+        <li>보유 기간: 행사 결과 보고 완료 후 파기 · 개인을 알아볼 수 있는 정보(이름·연락처)는 수집하지 않아요</li>
+        <li>동의하지 않으셔도 축제의 모든 프로그램은 자유롭게 이용할 수 있어요 (스탬프 투어만 제외)</li>
+      </ul>
+      <label class="check"><input id="fAgree" type="checkbox"> 위 내용에 동의합니다</label>
+    </div>
+    <div id="regErr" class="err" role="alert"></div>
+    <button class="btn" type="submit" style="margin-top:6px">★ 별자리 등록하고 시작하기</button>
+  </form>
+  <p class="foot">주최 김해시청소년수련관 · 협력 김해천문대 · 문의 055-346-2100</p>
+</main>
+
+<!-- ============ 스탬프판 ============ -->
+<main id="vBoard" class="wrap hidden">
+  <div class="top"><div class="brand"><b>2026 가을밤</b> 가족 별빛축제</div><a class="chip" href="../map.jpg" target="_blank" rel="noopener" style="text-decoration:none">🗺 배치도</a></div>
+  <div class="who"><div><div class="eyebrow">MY CONSTELLATION</div><h1 id="famName">우리 가족 별자리</h1></div><span class="id" id="pidTxt"></span></div>
+
+  <div class="sky" id="sky">
+    <div class="count"><span id="cnt">0</span><small> / 7</small></div>
+    <div class="tag" id="skyTag">별을 밝혀 주세요</div>
+    <svg id="skySvg" viewBox="0 0 360 260" role="img" aria-label="스탬프 별자리판"></svg>
+  </div>
+
+  <div id="surveyBanner" class="banner hidden"><b>🌙 마지막 미션! 만족도 조사</b><span class="small">1분이면 끝나요. 완료하면 완주 배지를 드려요.</span><button class="btn" type="button" data-act="survey">만족도 조사 시작하기</button></div>
+  <div id="doneBanner" class="banner hidden" style="background:linear-gradient(135deg,#7FD1B9,#8FB3FF)"><b>✨ 스탬프 투어 완주!</b><span class="small">함께해 주셔서 고마워요. 21:00 재점등까지 별빛을 즐겨 주세요.</span></div>
+
+  <div class="rewards" id="rewards"></div>
+
+  <div class="sec-t"><h3>스탬프 부스 7곳</h3><a href="../map.jpg" target="_blank" rel="noopener">배치도 보기 →</a></div>
+  <div class="booths" id="boothList"></div>
+
+  <div class="notice">
+    <b>이렇게 찍어요</b><br>
+    체험을 마치면 부스에 놓인 <b>스탬프 QR</b>을 아래 노란 버튼으로 찍어 주세요. 휴대폰 카메라로 찍어도 돼요.
+    카메라가 안 되면 <b>번호 입력</b>으로 QR 아래 4자리 번호를 넣어 주세요.<br><br>
+    <b>리워드는 가족당 1회</b>예요. 부스 직원이 확인한 뒤 <b>인증 QR</b>을 찍으면 사용 처리돼요.
+    리워드 교환은 <b>20:40 마감</b>, 간식·음료가 모두 나가면 조기 마감될 수 있어요.
+  </div>
+  <div class="foot">
+    주최 김해시청소년수련관 · 협력 김해천문대 · 문의 055-346-2100<br>
+    <span id="syncTxt"></span><br>
+    <button type="button" data-act="survey-early" id="earlySurvey">먼저 귀가하시나요? 만족도 조사 참여하기</button><br>
+    <button type="button" data-act="reset">이 기기의 스탬프 기록 지우기</button>
+  </div>
+</main>
+
+<div class="scanbar hidden" id="scanBar"><div class="in">
+  <button class="btn" type="button" data-act="scan">📷 QR 찍고 스탬프 받기</button>
+  <button class="btn ghost pin" type="button" data-act="pin">번호<br>입력</button>
+</div></div>
+
+<!-- ============ 스캐너 ============ -->
+<div class="ov hidden" id="ovScan" role="dialog" aria-modal="true" aria-label="QR 스캔">
+  <button class="x" type="button" data-act="close" aria-label="닫기">×</button>
+  <div class="in">
+    <h2 class="ttl" style="font-size:24px">부스 QR을 비춰 주세요</h2>
+    <p class="muted small" style="margin:4px 0 0">네모 안에 QR이 들어오면 자동으로 인식돼요</p>
+    <div class="cam"><video id="video" playsinline muted autoplay></video><div class="frame"></div><div class="scanline"></div><div class="msg hidden" id="camMsg"></div></div>
+    <p class="muted small" style="margin:16px 0 4px">카메라가 안 되나요? QR 아래 4자리 번호를 넣어 주세요</p>
+    <div class="pinrow"><input id="pinIn" type="text" inputmode="numeric" maxlength="4" pattern="[0-9]*" placeholder="0000" aria-label="4자리 번호"><button class="btn" type="button" data-act="pin-go">확인</button></div>
+  </div>
+</div>
+
+<!-- ============ 결과 / 리워드 / 설문 ============ -->
+<div class="ov hidden" id="ovResult" role="dialog" aria-modal="true"><div class="in" id="resultIn"></div></div>
+<div class="ov hidden" id="ovSurvey" role="dialog" aria-modal="true" aria-label="만족도 조사">
+  <button class="x" type="button" data-act="close" aria-label="닫기">×</button>
+  <div class="in" id="surveyIn"></div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<canvas id="cv" class="hidden"></canvas>
+
+<script src="config.js"></script>
+<script src="jsQR.js" defer></script>
+<script>
+(function(){
+'use strict';
+var API = (window.STAMP_CONFIG && window.STAMP_CONFIG.API_URL) || '';
+var KEY = 'starlight-stamp-2026', QKEY = 'starlight-queue-2026', PKEY = 'starlight-pending-2026';
+
+/* ---------- 부스·리워드 정의 (QR 코드값 / 4자리 번호) ---------- */
+var BOOTHS = [
+  {code:'SOL',   key:'SOL-3QX8',  pin:'5310', no:'5', name:'태양계 몸무게',     d:'목성에서 우리 가족 몸무게는?', c:'#7FD1B9', x:46,  y:176},
+  {code:'WISH',  key:'WISH-7RM2', pin:'4207', no:'4', name:'별빛 소원 우체통',  d:'1년 뒤 배달되는 가족 엽서',     c:'#7FD1B9', x:98,  y:118},
+  {code:'LAMP',  key:'LAMP-K5T9', pin:'7519', no:'7', name:'별자리 랜턴 만들기', d:'불을 켜면 벽에 별자리가',     c:'#7FD1B9', x:160, y:146},
+  {code:'GLOW',  key:'GLOW-2HV6', pin:'8626', no:'8', name:'야광 페이스페인팅', d:'어둠 속에서 빛나는 별 무늬',     c:'#7FD1B9', x:214, y:92},
+  {code:'SNAP',  key:'SNAP-9WC4', pin:'6094', no:'6', name:'인생네컷 포토부스', d:'행사 전용 프레임 가족 네컷',     c:'#C9A8FF', x:272, y:58},
+  {code:'SCOPE', key:'SCOPE-4NB7',pin:'9473', no:'9', name:'천체관측',          d:'관측 존 망원경으로 가을 밤하늘', c:'#E0564A', x:312, y:132},
+  {code:'CENTER',key:'CNTR-6JD3', pin:'1163', no:'★', name:'센터 만들기 체험',  d:'위치는 현장 안내를 확인해 주세요', c:'#F2B544', x:258, y:196}
+];
+var REWARDS = [
+  {code:'SNACK', key:'SNACK-5PL8', pin:'2258', no:'2', name:'과자뽑기',  need:3, ic:'🍬', where:'② 과자뽑기 부스', what:'과자뽑기 1회'},
+  {code:'CAFE',  key:'CAFE-8ZQ1',  pin:'3381', no:'3', name:'별빛다방',  need:5, ic:'☕', where:'③ 별빛다방',     what:'따뜻한 음료 1잔'}
+];
+var LINES = [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,2]];
+
+/* ---------- 상태 ---------- */
+function load(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+var S = load(KEY, null);
+var queue = load(QKEY, []);
+function persist(){save(KEY,S)}
+function nStamps(){return S?Object.keys(S.stamps).length:0}
+function uid(n){var a='ABCDEFGHJKLMNPQRSTUVWXYZ23456789',s='';var r=(window.crypto&&crypto.getRandomValues)?crypto.getRandomValues(new Uint8Array(n)):null;for(var i=0;i<n;i++)s+=a[(r?r[i]:Math.floor(Math.random()*256))%a.length];return s}
+var $=function(id){return document.getElementById(id)};
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function hhmm(ts){var d=new Date(ts);return ('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2)}
+
+/* ---------- 데이터 전송 (끊겨도 기기에 쌓였다가 재전송) ---------- */
+function track(ev){
+  if(!S) return;
+  ev.pid=S.pid; ev.ts=ev.ts||Date.now(); ev.eid=S.pid+'-'+ev.type+'-'+(ev.code||'')+'-'+uid(4);
+  queue.push(ev); save(QKEY,queue); flush();
+}
+var flushing=false;
+function flush(){
+  syncLabel();
+  if(!API||flushing||!queue.length||(navigator.onLine===false)) return;
+  flushing=true;
+  var batch=queue.slice(0,40), body=JSON.stringify(batch);
+  var done=function(){var ids={};batch.forEach(function(e){ids[e.eid]=1});queue=queue.filter(function(e){return !ids[e.eid]});save(QKEY,queue);flushing=false;syncLabel();if(queue.length)setTimeout(flush,300)};
+  var fail=function(){flushing=false;syncLabel()};
+  fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:body,redirect:'follow'})
+    .then(function(r){return r.json()}).then(function(j){if(j&&j.ok)done();else fail()})
+    .catch(function(){
+      fetch(API,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:body}).then(done).catch(fail);
+    });
+}
+function syncLabel(){var t=$('syncTxt');if(!t)return;t.textContent=!API?'· 기록은 이 기기에 저장돼요':(queue.length?'· 전송 대기 '+queue.length+'건 (연결되면 자동 전송)':'· 기록 저장 완료 ✓')}
+setInterval(flush,15000);
+window.addEventListener('online',flush);
+document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')flush()});
+
+/* ---------- 등록 폼 ---------- */
+var OPTS={
+  gender:['여성','남성'],
+  age:['10대','20대','30대','40대','50대','60대 이상'],
+  region:['진영읍','김해시(진영읍 외)','창원시','밀양시','그 외 경남','부산·울산','그 외 지역'],
+  kidAges:['영유아(0~6세)','초등 1~3학년','초등 4~6학년','중학생','고등학생','자녀 동반 안 함'],
+  channel:['학교·기관 안내문','현수막·포스터','SNS(인스타·밴드 등)','축제 홈페이지','김해시 공공예약','지인 추천','지나가다','기타']
+};
+function buildOpts(root,name,type,list){
+  root.innerHTML=list.map(function(v,i){return '<label class="opt"><input type="'+type+'" name="'+name+'" value="'+esc(v)+'"><span>'+esc(v)+'</span></label>'}).join('');
+}
+document.querySelectorAll('#regForm .opts').forEach(function(el){buildOpts(el,el.dataset.name,el.dataset.type,OPTS[el.dataset.name])});
+var ppl={adults:1,kids:1};
+document.querySelectorAll('[data-step]').forEach(function(b){b.addEventListener('click',function(){var p=b.dataset.step.split(':');ppl[p[0]]=Math.max(p[0]==='adults'?1:0,Math.min(15,ppl[p[0]]+Number(p[1])));$('oAdults').textContent=ppl.adults;$('oKids').textContent=ppl.kids})});
+function val(form,name){var c=form.querySelector('input[name="'+name+'"]:checked');return c?c.value:''}
+function vals(form,name){return Array.prototype.map.call(form.querySelectorAll('input[name="'+name+'"]:checked'),function(i){return i.value})}
+
+$('regForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var f=e.target, err=$('regErr');
+  var g=val(f,'gender'),a=val(f,'age'),r=val(f,'region');
+  if(!g||!a||!r){err.textContent='성별·연령대·사는 곳을 선택해 주세요.';return}
+  if(!$('fAgree').checked){err.textContent='개인정보 수집·이용에 동의해 주셔야 스탬프 투어를 시작할 수 있어요.';return}
+  err.textContent='';
+  var fam=$('fFamily').value.trim();
+  S={pid:'F'+uid(6),family:fam,created:Date.now(),stamps:{},rewards:{},survey:null};
+  persist();
+  track({type:'register',family:fam,gender:g,age:a,region:r,adults:ppl.adults,kids:ppl.kids,kidAges:vals(f,'kidAges'),channel:vals(f,'channel')});
+  render(); window.scrollTo(0,0);
+  var pend=load(PKEY,null); try{localStorage.removeItem(PKEY)}catch(x){}
+  if(pend) handleCode(pend); else toast('등록 완료! 첫 번째 부스로 가 볼까요? ✨');
+});
+
+/* ---------- 화면 ---------- */
+function show(id){['vIntro','vBoard'].forEach(function(v){$(v).classList.toggle('hidden',v!==id)});$('scanBar').classList.toggle('hidden',id!=='vBoard')}
+function render(justCode){
+  if(!S){show('vIntro');return}
+  show('vBoard');
+  $('famName').textContent=S.family||'우리 가족 별자리';
+  $('pidTxt').textContent='No. '+S.pid.slice(1);
+  var n=nStamps(); $('cnt').textContent=n;
+  $('skyTag').textContent=n>=7?'별자리 완성!':(n?'다음 별을 밝혀 볼까요?':'별을 밝혀 주세요');
+  drawSky(justCode);
+  // 리워드
+  $('rewards').innerHTML=REWARDS.map(function(r){
+    var used=S.rewards[r.code], on=!used&&n>=r.need, pct=Math.min(100,n/r.need*100);
+    var st=used?'사용 완료 '+hhmm(used):(on?'지금 받을 수 있어요':'별 '+(r.need-Math.min(n,r.need))+'개 더');
+    return '<div class="rw '+(used?'used':(on?'on':''))+'"><div class="ic">'+r.ic+'</div><div style="flex:1;min-width:0"><b>'+r.name+' 이용권</b><div class="s">'+(used?r.what+' · 사용했어요':(on?r.where+'에서 직원 확인 후 <b style="color:var(--hl)">인증 QR</b>을 찍어 주세요':'스탬프 '+r.need+'개를 모으면 열려요'))+'</div>'+(used||on?'':'<div class="bar"><i style="width:'+pct+'%"></i></div>')+'</div><span class="st">'+st+'</span></div>';
+  }).join('');
+  // 부스 목록
+  $('boothList').innerHTML=BOOTHS.map(function(b){var t=S.stamps[b.code];
+    return '<div class="bt '+(t?'got':'')+'" style="--c:'+b.c+'"><span class="no">'+b.no+'</span><div class="tx"><b>'+b.name+'</b><div class="d">'+b.d+'</div></div><span class="ok">'+(t?'★ '+hhmm(t):'미참여')+'</span></div>'}).join('');
+  var cafe=S.rewards.CAFE;
+  $('surveyBanner').classList.toggle('hidden',!(cafe&&!S.survey));
+  $('doneBanner').classList.toggle('hidden',!S.survey);
+  $('earlySurvey').classList.toggle('hidden',!!S.survey||!!cafe||n<1);
+  syncLabel();
+}
+function drawSky(justCode){
+  var svg='';
+  LINES.forEach(function(l){var a=BOOTHS[l[0]],b=BOOTHS[l[1]],on=S.stamps[a.code]&&S.stamps[b.code];
+    svg+='<line x1="'+a.x+'" y1="'+a.y+'" x2="'+b.x+'" y2="'+b.y+'" stroke="'+(on?'#F4E33A':'#2A3468')+'" stroke-width="'+(on?2:1.2)+'" stroke-dasharray="'+(on?'0':'3 4')+'" opacity="'+(on?.9:.8)+'"/>'});
+  BOOTHS.forEach(function(b){var on=!!S.stamps[b.code];
+    var ly=b.y<80?b.y+30:b.y-18;
+    svg+='<g class="'+(on?'lit':'')+'">';
+    if(on) svg+='<circle cx="'+b.x+'" cy="'+b.y+'" r="18" fill="#F4E33A" opacity=".18"/>';
+    svg+='<path class="star-dot'+(justCode===b.code?' just':'')+'" d="'+starPath(b.x,b.y,on?11:7,on?4.6:3)+'" fill="'+(on?'#F4E33A':'#3A4580')+'" stroke="'+(on?'#fff':'#5A66A8')+'" stroke-width="'+(on?1:.8)+'"/>';
+    svg+='<text class="lbl-s" x="'+b.x+'" y="'+ly+'" text-anchor="middle">'+esc(b.name.replace(' 포토부스','').replace(' 만들기 체험',' 만들기').replace(' 페이스페인팅',' 페인팅'))+'</text></g>';
+  });
+  $('skySvg').innerHTML=svg;
+}
+function starPath(cx,cy,R,r){var p='';for(var i=0;i<10;i++){var a=Math.PI/5*i-Math.PI/2,rr=i%2?r:R;p+=(i?'L':'M')+(cx+rr*Math.cos(a)).toFixed(1)+' '+(cy+rr*Math.sin(a)).toFixed(1)}return p+'Z'}
+
+/* ---------- 코드 처리 ---------- */
+function parseCode(txt){
+  txt=String(txt||'').trim();
+  var m=txt.match(/[?&#]k=([A-Za-z0-9-]+)/); if(m) return m[1].toUpperCase();
+  return txt.toUpperCase();
+}
+function findCode(k){
+  var all=BOOTHS.map(function(b){return{t:'b',o:b}}).concat(REWARDS.map(function(r){return{t:'r',o:r}}));
+  for(var i=0;i<all.length;i++){if(all[i].o.key===k||all[i].o.pin===k)return all[i]}
+  return null;
+}
+function handleCode(raw){
+  var k=parseCode(raw), hit=findCode(k);
+  if(!hit){openResult('<div class="result"><div class="big">🤔</div><h2>알 수 없는 QR이에요</h2><p>별빛축제 스탬프 QR이 맞는지 확인해 주세요.<br>안 되면 QR 아래 4자리 번호를 입력해 주세요.</p><button class="btn" data-act="close">돌아가기</button></div>');return}
+  if(hit.t==='b') giveStamp(hit.o); else askReward(hit.o);
+}
+function giveStamp(b){
+  var before=nStamps();
+  if(S.stamps[b.code]){openResult('<div class="result"><div class="big">⭐</div><h2>'+esc(b.name)+'<br>이미 받은 별이에요</h2><p>'+hhmm(S.stamps[b.code])+'에 받았어요. 다른 부스도 둘러보세요!</p><button class="btn" data-act="close">스탬프판 보기</button></div>');return}
+  S.stamps[b.code]=Date.now(); persist();
+  var n=nStamps();
+  track({type:'stamp',code:b.code,name:b.name,count:n});
+  var unlock='';
+  REWARDS.forEach(function(r){if(before<r.need&&n>=r.need&&!S.rewards[r.code])unlock+='<div class="unlock">'+r.ic+' '+r.name+' 이용권이 열렸어요!<br><span style="font-weight:500">'+r.where+'에서 받아 가세요</span></div>'});
+  var next=n>=7?'일곱 개의 별을 모두 밝혔어요!':(n<3?'과자뽑기까지 별 '+(3-n)+'개':(n<5?'별빛다방까지 별 '+(5-n)+'개':'별자리 완성까지 '+(7-n)+'개'));
+  openResult('<div class="result"><div class="eyebrow">STAMP '+n+' / 7</div><div class="big"><span class="twinkle">⭐</span></div><h2>'+esc(b.name)+'<br>별을 밝혔어요!</h2><p>'+next+'</p>'+unlock+'<button class="btn" data-act="close" data-just="'+b.code+'">스탬프판 보기</button></div>');
+  try{navigator.vibrate&&navigator.vibrate([60,40,120])}catch(x){}
+}
+function askReward(r){
+  var used=S.rewards[r.code], n=nStamps();
+  if(used){openTicket(r,used,true);return}
+  if(n<r.need){openResult('<div class="result"><div class="big">'+r.ic+'</div><h2>아직 '+r.name+'<br>이용권이 없어요</h2><p>스탬프 '+r.need+'개가 필요해요. 지금 '+n+'개 모았어요.<br>별 '+(r.need-n)+'개만 더 모아 주세요!</p><button class="btn" data-act="close">스탬프 더 모으기</button></div>');return}
+  openResult('<div class="result"><div class="eyebrow">REWARD</div><div class="big">'+r.ic+'</div><h2>'+r.name+' 이용권</h2><p>'+r.what+' · 가족당 1회<br><b style="color:var(--hl)">직원에게 이 화면을 보여 주고,<br>받으신 뒤 아래 버튼을 눌러 주세요.</b></p><button class="btn" data-act="use" data-code="'+r.code+'">✓ '+r.name+' 받았어요 (사용 완료)</button><button class="btn ghost" style="margin-top:10px" data-act="close">나중에 받을게요</button></div>');
+}
+function useReward(code){
+  var r=REWARDS.filter(function(x){return x.code===code})[0]; if(!r||S.rewards[code])return;
+  S.rewards[code]=Date.now(); persist();
+  track({type:'reward',code:r.code,name:r.name,count:nStamps()});
+  openTicket(r,S.rewards[code],false);
+}
+var clockTimer=null;
+function openTicket(r,ts,already){
+  var after=r.code==='CAFE'&&!S.survey?'<button class="btn" data-act="survey" style="margin-top:20px">다음: 만족도 조사하고 완주 배지 받기 →</button>':'<button class="btn" data-act="close" style="margin-top:20px">스탬프판으로</button>';
+  openResult('<div class="result" style="padding-top:10px"><div class="ticket ok"><span class="stampmark">✓ 사용 완료</span><div class="k">2026 가을밤 가족 별빛축제</div><h2>'+r.ic+' '+r.name+'</h2><div class="fam">'+esc(S.family||'우리 가족 별자리')+' · No.'+S.pid.slice(1)+'</div><div style="margin-top:6px;font-size:14px">'+r.what+' · '+hhmm(ts)+' 사용'+(already?' (이미 사용됨)':'')+'</div><div class="clock" id="liveClock">--:--:--</div><div style="font-size:12px;opacity:.7;margin-top:6px">실시간 시계로 캡처 화면이 아닌지 확인해 주세요</div></div>'+after+'</div>');
+  tick(); clearInterval(clockTimer); clockTimer=setInterval(tick,1000);
+}
+function tick(){var c=$('liveClock');if(!c){clearInterval(clockTimer);return}var d=new Date();c.textContent=[d.getHours(),d.getMinutes(),d.getSeconds()].map(function(x){return('0'+x).slice(-2)}).join(':')}
+
+/* ---------- 오버레이 ---------- */
+function openResult(html){stopScan();$('ovScan').classList.add('hidden');$('resultIn').innerHTML=html;$('ovResult').classList.remove('hidden');$('ovResult').scrollTop=0}
+function closeAll(just){stopScan();clearInterval(clockTimer);['ovScan','ovResult','ovSurvey'].forEach(function(i){$(i).classList.add('hidden')});render(just)}
+var tT;function toast(m){var t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(tT);tT=setTimeout(function(){t.classList.remove('on')},2600)}
+
+/* ---------- QR 스캐너 ---------- */
+var stream=null, raf=0, detector=null, scanning=false;
+function startScan(){
+  $('ovScan').classList.remove('hidden'); $('pinIn').value=''; var msg=$('camMsg'); msg.classList.add('hidden');
+  if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){camFail('이 브라우저에서는 카메라를 쓸 수 없어요.<br>휴대폰 기본 카메라로 QR을 찍거나<br>아래에 4자리 번호를 넣어 주세요.');return}
+  navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'},width:{ideal:1280},height:{ideal:720}},audio:false}).then(function(s){
+    stream=s; var v=$('video'); v.srcObject=s; v.setAttribute('playsinline',''); v.play().catch(function(){});
+    scanning=true;
+    if('BarcodeDetector' in window){try{detector=new BarcodeDetector({formats:['qr_code']})}catch(e){detector=null}}
+    loop();
+  }).catch(function(){camFail('카메라를 쓸 수 없어요 📷<br><span class="small">카메라 권한을 허용하거나, 휴대폰 기본 카메라로 QR을 찍어 주세요.<br>아래 4자리 번호 입력도 가능해요.</span>')});
+}
+function camFail(h){var m=$('camMsg');m.innerHTML=h;m.classList.remove('hidden')}
+var busy=false;
+function loop(){
+  if(!scanning)return;
+  var v=$('video');
+  if(v.readyState>=2&&!busy){
+    if(detector){busy=true;detector.detect(v).then(function(r){busy=false;if(r&&r.length)return found(r[0].rawValue);}).catch(function(){busy=false;detector=null})}
+    else if(window.jsQR){
+      var cv=$('cv'),w=v.videoWidth,h=v.videoHeight,sc=Math.min(1,640/Math.max(w,h));cv.width=Math.round(w*sc);cv.height=Math.round(h*sc);
+      var ctx=cv.getContext('2d',{willReadFrequently:true});ctx.drawImage(v,0,0,cv.width,cv.height);
+      var img=ctx.getImageData(0,0,cv.width,cv.height),q=window.jsQR(img.data,img.width,img.height,{inversionAttempts:'attemptBoth'});
+      if(q&&q.data){found(q.data);return}
+    }
+  }
+  raf=requestAnimationFrame(loop);
+}
+function found(txt){if(!scanning)return;stopScan();try{navigator.vibrate&&navigator.vibrate(40)}catch(x){}handleCode(txt)}
+function stopScan(){scanning=false;cancelAnimationFrame(raf);if(stream){stream.getTracks().forEach(function(t){t.stop()});stream=null}}
+
+/* ---------- 만족도 조사 ---------- */
+var PROGRAMS=BOOTHS.map(function(b){return b.name}).concat(['별빛 문화공연(어쿠스틱)','소등 세리머니·별자리 해설','과자뽑기','별빛다방','가족 피크닉 존']);
+var SV={
+  pain:['대기 시간이 길었어요','추웠어요(방한 부족)','어두워서 이동이 불편했어요','안내·표지판이 부족했어요','주차·교통이 불편했어요','화장실·편의시설이 부족했어요','먹거리가 부족했어요','체험 재료가 일찍 떨어졌어요','공연 소리가 작거나 컸어요','특별히 없었어요'],
+  wish:['별자리 해설 강연','이동식 천체투영관(돔 영상)','야외 가족 영화 상영','푸드트럭·야시장','가족 캠핑·1박 프로그램','과학·우주 체험 확대','버스킹·공연 확대','가족 사진·영상 콘테스트'],
+  month:['9월','10월','11월(올해처럼)','봄(4~5월)','여름방학'],
+  day:['금요일 저녁(올해처럼)','토요일','일요일'],
+  stay:['1시간 미만','1~2시간','2~3시간','3시간 이상']
+};
+function radios(name,list){return '<div class="opts">'+list.map(function(v){return '<label class="opt"><input type="radio" name="'+name+'" value="'+esc(v)+'"><span>'+esc(v)+'</span></label>'}).join('')+'</div>'}
+function checks(name,list){return '<div class="opts">'+list.map(function(v){return '<label class="opt"><input type="checkbox" name="'+name+'" value="'+esc(v)+'"><span>'+esc(v)+'</span></label>'}).join('')+'</div>'}
+function five(name,labels){var em=['😞','🙁','😐','🙂','😍'];return '<div class="stars5">'+[1,2,3,4,5].map(function(i){return '<label><input type="radio" name="'+name+'" value="'+i+'"><span><em>'+em[i-1]+'</em>'+i+'</span></label>'}).join('')+'</div><div class="scale-cap"><span>'+labels[0]+'</span><span>'+labels[1]+'</span></div>'}
+function openSurvey(){
+  stopScan();$('ovResult').classList.add('hidden');
+  var mine=BOOTHS.filter(function(b){return S.stamps[b.code]}).map(function(b){return b.name});
+  var progs=PROGRAMS;
+  $('surveyIn').innerHTML='<form id="svForm" novalidate>'+
+   '<div class="eyebrow" style="margin-top:8px">LAST MISSION</div><h2 class="ttl" style="font-size:28px;line-height:1.25">오늘 별빛축제,<br>어떠셨나요?</h2><p class="muted small" style="margin:6px 0 0">약 1분 · 답변은 내년 축제를 만드는 데 그대로 쓰여요.</p>'+
+   '<div class="sv-sec">만족도</div>'+
+   '<div class="q"><span class="lbl">1. 축제 전체에 얼마나 만족하셨나요?<span class="req">필수</span></span>'+five('overall',['매우 불만족','매우 만족'])+'</div>'+
+   '<div class="q"><span class="lbl">2. 체험·공연 등 프로그램 구성은 어떠셨나요?</span>'+five('program',['아쉬움','아주 좋음'])+'</div>'+
+   '<div class="q"><span class="lbl">3. 동선·대기·안내 등 운영은 어떠셨나요?</span>'+five('operation',['불편함','아주 편함'])+'</div>'+
+   '<div class="sv-sec">프로그램</div>'+
+   '<div class="q"><span class="lbl">4. 가장 재미있었던 프로그램 하나를 골라 주세요<span class="req">필수</span></span>'+radios('best',progs)+'</div>'+
+   '<div class="q"><span class="lbl">5. 내년에도 꼭 있었으면 하는 프로그램 <span class="hint">(모두 선택)</span></span>'+checks('again',progs)+'</div>'+
+   '<div class="q"><span class="lbl">6. 아쉬웠던 점 <span class="hint">(모두 선택)</span></span>'+checks('pain',SV.pain)+'</div>'+
+   '<div class="q"><span class="lbl">7. 내년에 새로 생기면 좋을 프로그램 <span class="hint">(모두 선택)</span></span>'+checks('wish',SV.wish)+'</div>'+
+   '<div class="sv-sec">다음 축제</div>'+
+   '<div class="q"><span class="lbl">8. 내년에도 이 축제에 참여하고 싶으신가요?</span>'+five('revisit',['전혀 아니다','꼭 오고 싶다'])+'</div>'+
+   '<div class="q"><span class="lbl">9. 주변 가족·지인에게 추천할 의향은? <span class="hint">(0~10)</span></span><div class="nps">'+[0,1,2,3,4,5,6,7,8,9,10].map(function(i){return '<label><input type="radio" name="nps" value="'+i+'"><span>'+i+'</span></label>'}).join('')+'</div><div class="scale-cap"><span>전혀 없음</span><span>꼭 추천</span></div></div>'+
+   '<div class="q"><span class="lbl">10. 가장 좋은 개최 시기는? <span class="hint">(달·요일 각각 선택)</span></span>'+radios('month',SV.month)+'<div style="height:8px"></div>'+radios('day',SV.day)+'</div>'+
+   '<div class="q"><span class="lbl">11. 오늘 행사장에 머문 시간</span>'+radios('stay',SV.stay)+'</div>'+
+   '<div class="q"><label for="svC">12. 하고 싶은 말이 있다면 자유롭게 남겨 주세요 <span class="hint">(선택)</span></label><textarea id="svC" maxlength="500" placeholder="좋았던 점, 바라는 점 무엇이든 좋아요"></textarea></div>'+
+   '<div id="svErr" class="err" role="alert"></div>'+
+   '<button class="btn" type="submit" style="margin-top:8px">✓ 제출하고 완주 배지 받기</button>'+
+   '<p class="muted small" style="text-align:center;margin-top:10px">참여한 부스: '+(mine.length?esc(mine.join(', ')):'없음')+'</p></form>';
+  $('ovSurvey').classList.remove('hidden');$('ovSurvey').scrollTop=0;
+  $('svForm').addEventListener('submit',submitSurvey);
+}
+function submitSurvey(e){
+  e.preventDefault();var f=e.target;
+  var a={overall:val(f,'overall'),program:val(f,'program'),operation:val(f,'operation'),best:val(f,'best'),again:vals(f,'again'),pain:vals(f,'pain'),wish:vals(f,'wish'),revisit:val(f,'revisit'),nps:val(f,'nps'),when:[val(f,'month'),val(f,'day')].filter(Boolean),stay:val(f,'stay'),comment:$('svC').value.trim()};
+  if(!a.overall||!a.best){$('svErr').textContent='1번(전체 만족도)과 4번(가장 재미있었던 프로그램)은 꼭 골라 주세요.';$('svErr').scrollIntoView({block:'center'});return}
+  S.survey=Date.now();persist();
+  track({type:'survey',answers:a,count:nStamps(),booths:BOOTHS.filter(function(b){return S.stamps[b.code]}).map(function(b){return b.name})});
+  $('ovSurvey').classList.add('hidden');
+  openResult('<div class="result"><div class="done-badge">별빛 소풍<br>완주</div><h2 style="margin-top:16px">고마워요!<br>'+esc(S.family||'우리 가족')+'</h2><p>밝힌 별 '+nStamps()+'개 · 소중한 의견 잘 받았어요.<br>내년 가을밤에 또 만나요 🌙</p><button class="btn" data-act="close">스탬프판으로</button></div>');
+}
+
+/* ---------- 이벤트 ---------- */
+document.addEventListener('click',function(e){
+  var t=e.target.closest('[data-act]');if(!t)return;var a=t.dataset.act;
+  if(a==='scan')startScan();
+  else if(a==='pin'){startScan();setTimeout(function(){$('pinIn').focus()},300)}
+  else if(a==='pin-go'){var p=$('pinIn').value.trim();if(!/^\d{4}$/.test(p)){toast('4자리 번호를 넣어 주세요');return}handleCode(p)}
+  else if(a==='close')closeAll(t.dataset.just);
+  else if(a==='use')useReward(t.dataset.code);
+  else if(a==='survey')openSurvey();
+  else if(a==='survey-early'){if(confirm('지금 만족도 조사를 하시겠어요?\n(조사 후에도 스탬프·리워드는 그대로 이용할 수 있어요)'))openSurvey()}
+  else if(a==='reset'){if(confirm('이 기기의 스탬프 기록을 모두 지울까요?\n지운 기록은 되돌릴 수 없어요.')&&confirm('정말 지울까요? 리워드 사용 기록도 함께 지워져요.')){flush();try{localStorage.removeItem(KEY)}catch(x){}S=null;render();window.scrollTo(0,0)}}
+});
+$('pinIn').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();$('ovScan').querySelector('[data-act="pin-go"]').click()}});
+
+/* ---------- 시작: 카메라 앱으로 QR을 찍어 들어온 경우 ---------- */
+var qk=(location.search.match(/[?&]k=([A-Za-z0-9-]+)/)||[])[1];
+if(qk){try{history.replaceState(null,'',location.pathname)}catch(x){}}
+render();
+if(qk){ if(S) handleCode(qk); else { save(PKEY,qk); toast('먼저 우리 가족 별자리를 등록해 주세요 ✨'); } }
+flush();
+})();
+</script>
+</body>
+</html>
