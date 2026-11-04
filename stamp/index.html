@@ -332,7 +332,7 @@ var BOOTHS = [
   {code:'WISH',  key:'WISH-7RM2', pin:'4207', no:'7', name:'별빛 소원 우체통',  d:'1년 뒤 배달되는 가족 엽서',     c:'#7FD1B9', x:214, y:92},
   {code:'SNAP',  key:'SNAP-9WC4', pin:'6094', no:'5', name:'인생네컷 포토부스', d:'행사 전용 프레임 가족 네컷',     c:'#C9A8FF', x:272, y:58},
   {code:'SCOPE', key:'SCOPE-4NB7',pin:'9473', no:'8', name:'천체관측',          d:'관측 존 망원경으로 가을 밤하늘', c:'#E0564A', x:312, y:132},
-  {code:'CENTER',key:'CNTR-6JD3', pin:'1163', no:'4', name:'센터 운영 체험',    d:'태양계 몸무게 옆 ④번 부스', c:'#F2B544', x:258, y:196}
+  {code:'CENTER',key:'CNTR-6JD3', pin:'1163', no:'4', name:'방과후아카데미 가족과 함께하는 별자리캠프', short:'별자리캠프', d:'태양계 몸무게 옆 ④번 부스', c:'#F2B544', x:258, y:196}
 ];
 var REWARDS = [
   {code:'SNACK', key:'SNACK-5PL8', pin:'2258', no:'10', name:'과자뽑기',  need:3, ic:'🍬', where:'⑩ 과자뽑기 부스', what:'과자뽑기 1회'},
@@ -444,7 +444,7 @@ function drawSky(justCode){
     svg+='<g class="'+(on?'lit':'')+'">';
     if(on) svg+='<circle cx="'+b.x+'" cy="'+b.y+'" r="18" fill="#F4E33A" opacity=".18"/>';
     svg+='<path class="star-dot'+(justCode===b.code?' just':'')+'" d="'+starPath(b.x,b.y,on?11:7,on?4.6:3)+'" fill="'+(on?'#F4E33A':'#3A4580')+'" stroke="'+(on?'#fff':'#5A66A8')+'" stroke-width="'+(on?1:.8)+'"/>';
-    svg+='<text class="lbl-s" x="'+b.x+'" y="'+ly+'" text-anchor="middle">'+esc(b.name.replace(' 포토부스','').replace(' 페이스페인팅',' 페인팅'))+'</text></g>';
+    svg+='<text class="lbl-s" x="'+b.x+'" y="'+ly+'" text-anchor="middle">'+esc(b.short||b.name.replace(' 포토부스','').replace(' 페이스페인팅',' 페인팅'))+'</text></g>';
   });
   $('skySvg').innerHTML=svg;
 }

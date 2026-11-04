@@ -116,7 +116,7 @@ function draw(d){
   var snack=(d.reward||{})['과자뽑기']||0, cafe=(d.reward||{})['별빛다방']||0;
   $('kpis').innerHTML=kpi('등록 가족',t.families,'팀')+kpi('총 참여 인원',t.people,'명<small class="blk">어른 '+t.adults+' · 어린이 '+t.kids+'</small>')+kpi('찍힌 스탬프',t.stamps,'개')+kpi('과자뽑기 사용',snack,'가족')+kpi('별빛다방 사용',cafe,'가족')+kpi('만족도 응답',t.surveys,'건')+kpi('전반적 만족도',av.overall,'/ 5')+kpi('추천지수 NPS',sv.nps,sv.npsN?'('+sv.npsN+'명)':'');
   var g='';
-  var BN=['태양계 몸무게','별빛 소원 우체통','별자리 랜턴 만들기','야광 페이스페인팅','인생네컷 포토부스','천체관측','센터 운영 체험'],bo={};BN.forEach(function(n){bo[n]=(d.booth||{})[n]||0});
+  var BN=['태양계 몸무게','별빛 소원 우체통','별자리 랜턴 만들기','야광 페이스페인팅','인생네컷 포토부스','천체관측','방과후아카데미 가족과 함께하는 별자리캠프'],bo={};BN.forEach(function(n){bo[n]=(d.booth||{})[n]||0});
   g+=bars('부스별 스탬프 (참여 가족 수)',bo,{c:'var(--mint)'});
   g+=bars('가족당 스탬프 개수 분포',d.dist,{order:['1개','2개','3개','4개','5개','6개','7개'],c:'var(--blue)',pct:true});
   g+=cols('시간대별 스탬프 (30분 단위)',d.stampTime);
