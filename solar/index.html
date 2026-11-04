@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0A1129">
+<meta name="description" content="2026 가을밤 가족 별빛축제 — 태양계 몸무게 계산기">
+<title>태양계 몸무게 · 2026 가을밤 가족 별빛축제</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:"Cafe24 Anemone";src:url(../cafe24-anemone.woff2) format("woff2");font-weight:400;font-display:swap}
+:root{
+  --sky:#0A1129;--deep:#050A1E;--panel:#141C45;--panel2:#1B2558;--line:#2A3468;
+  --star:#F4EAD5;--mute:#A9B5E0;--dim:#6C77A8;--hl:#F4E33A;--gold:#F2B544;--orange:#F39800;
+  --mint:#7FD1B9;--lav:#C9A8FF;--pink:#E99AC4;
+  --title:"Cafe24 Anemone","Noto Sans KR",sans-serif;
+  --body:"Noto Sans KR","Apple SD Gothic Neo",system-ui,sans-serif;
+  --r:16px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;overflow-x:hidden;background:var(--deep);color:var(--star);font-family:var(--body);font-size:16px;line-height:1.55;word-break:keep-all}
+body{min-height:100dvh;background:
+  radial-gradient(1px 1px at 12% 8%,#fff8 50%,transparent 51%),radial-gradient(1px 1px at 78% 14%,#fff9 50%,transparent 51%),
+  radial-gradient(1.5px 1.5px at 40% 22%,#fffa 50%,transparent 51%),radial-gradient(1px 1px at 88% 40%,#fff7 50%,transparent 51%),
+  radial-gradient(1px 1px at 22% 55%,#fff6 50%,transparent 51%),radial-gradient(1.5px 1.5px at 64% 70%,#fff8 50%,transparent 51%),
+  radial-gradient(1px 1px at 8% 86%,#fff7 50%,transparent 51%),radial-gradient(1px 1px at 92% 92%,#fff6 50%,transparent 51%),
+  radial-gradient(120% 60% at 50% 0%,#1B2558 0%,var(--sky) 45%,var(--deep) 100%);background-attachment:fixed}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+.wrap{max-width:480px;margin:0 auto;padding:0 16px calc(48px + env(safe-area-inset-bottom))}
+.hidden{display:none!important}
+h1,h2,h3{margin:0;font-weight:400}
+.top{display:flex;align-items:center;justify-content:space-between;padding:calc(14px + env(safe-area-inset-top)) 0 6px}
+.brand{font-family:var(--title);font-size:15px;color:var(--mute)}
+.brand b{color:var(--star);font-weight:400}
+.chip{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--mute);background:#0A112999;text-decoration:none}
+
+.hero{padding:18px 0 4px;display:flex;gap:14px;align-items:center}
+.badge{flex:none;width:58px;height:58px;border-radius:50%;background:var(--mint);color:var(--deep);display:grid;place-items:center;font-family:var(--title);font-size:32px}
+.hero h1{font-family:var(--title);font-size:34px;line-height:1.1}
+.hero p{margin:4px 0 0;color:var(--mute);font-size:14px}
+.hero p b{color:var(--hl);font-weight:700}
+
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px;margin:14px 0}
+.label{font-size:13px;color:var(--mute);font-weight:700;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+
+.tabs{display:grid;grid-template-columns:1fr 1fr;background:var(--deep);border:1px solid var(--line);border-radius:12px;padding:4px;margin-bottom:14px}
+.tabs button{border:0;background:none;border-radius:9px;padding:9px 0;font-weight:700;color:var(--mute);font-size:15px}
+.tabs button[aria-selected="true"]{background:var(--panel2);color:var(--star);box-shadow:inset 0 0 0 1px var(--mint)}
+
+.inrow{display:flex;align-items:center;gap:10px}
+.kg{flex:1;min-width:0;display:flex;align-items:baseline;background:var(--deep);border:2px solid var(--line);border-radius:14px;padding:6px 16px;transition:border-color .15s}
+.kg:focus-within{border-color:var(--mint)}
+.kg input{flex:1;min-width:0;width:100%;border:0;background:none;outline:none;font-size:40px;font-weight:900;color:var(--star);padding:0}
+.kg input::placeholder{color:#3a4680}
+.kg span{font-size:20px;color:var(--mute);font-weight:700}
+.add{flex:none;height:64px;padding:0 16px;border-radius:14px;border:0;background:var(--mint);color:var(--deep);font-weight:900;font-size:16px}
+.quick{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.quick button{border:1px solid var(--line);background:var(--panel2);border-radius:999px;padding:5px 12px;font-size:14px;color:var(--mute)}
+.fam{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;min-height:8px}
+.fam .m{display:inline-flex;align-items:center;gap:6px;background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:4px 6px 4px 12px;font-size:14px}
+.fam .m button{border:0;background:#2A3468;border-radius:50%;width:22px;height:22px;line-height:22px;padding:0;font-size:13px;color:var(--mute)}
+.total{margin-top:10px;font-size:15px;color:var(--mute)}
+.total b{color:var(--star);font-size:20px}
+.hint{font-size:13px;color:var(--dim);margin-top:8px}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.pbtn{position:relative;border:1px solid var(--line);background:var(--panel2);border-radius:14px;padding:12px 4px 10px;display:flex;flex-direction:column;align-items:center;gap:6px;transition:transform .1s,border-color .15s}
+.pbtn:active{transform:scale(.96)}
+.pbtn[aria-pressed="true"]{border-color:var(--hl);box-shadow:0 0 0 2px #F4E33A55;background:#22306e}
+.pbtn .nm{font-family:var(--title);font-size:18px}
+.pbtn .fx{font-size:12px;color:var(--mute);font-weight:700}
+.dot{width:40px;height:40px;border-radius:50%;position:relative}
+.pbtn.earth{border-color:#3c4b8f}
+
+.result{text-align:center;padding:22px 16px;position:relative;overflow:hidden}
+.result .big{display:flex;justify-content:center;margin:2px 0 10px}
+.result .big .dot{width:96px;height:96px}
+.result .who{color:var(--mute);font-size:15px}
+.result .num{font-size:62px;font-weight:900;line-height:1.05;color:var(--hl);letter-spacing:-.02em}
+.result .num small{font-size:26px;color:var(--star);margin-left:4px}
+.result .calc{font-size:14px;color:var(--mute);margin-top:6px}
+.result .diff{display:inline-block;margin-top:12px;border-radius:999px;padding:5px 14px;font-weight:700;font-size:15px;background:var(--panel2);border:1px solid var(--line)}
+.result .fact{margin-top:14px;background:var(--deep);border-radius:12px;padding:12px 14px;font-size:15px;text-align:left;color:var(--star)}
+.result .fact b{color:var(--mint)}
+.empty{color:var(--dim);text-align:center;padding:26px 10px;font-size:15px}
+@keyframes pop{0%{transform:scale(.7);opacity:0}100%{transform:scale(1);opacity:1}}
+.pop{animation:pop .35s cubic-bezier(.2,1.4,.4,1)}
+
+.all{width:100%;border:1px solid var(--line);background:none;border-radius:12px;padding:12px;color:var(--mute);font-weight:700}
+table{width:100%;border-collapse:collapse;margin-top:10px;font-size:15px}
+td{padding:8px 6px;border-bottom:1px solid var(--line)}
+td:last-child{text-align:right;font-weight:900}
+td .f{color:var(--dim);font-size:12px;margin-left:6px}
+tr.hi td:last-child{color:var(--hl)}
+
+.why{font-size:14px;color:var(--mute)}
+.why h3{font-family:var(--title);font-size:18px;color:var(--mint);margin-bottom:6px}
+.why p{margin:0 0 6px}
+.foot{font-size:12px;color:var(--dim);text-align:center;margin-top:18px;line-height:1.7}
+.foot a{color:var(--mute)}
+.stamp{display:flex;align-items:center;justify-content:space-between;gap:10px;background:linear-gradient(90deg,#1B2558,#141C45);border:1px solid var(--mint);border-radius:var(--r);padding:14px 16px;text-decoration:none;color:var(--star)}
+.stamp b{display:block;font-size:16px}
+.stamp span{font-size:13px;color:var(--mute)}
+.stamp i{font-style:normal;font-weight:900;color:var(--hl);font-size:20px;letter-spacing:.1em}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="brand">2026 가을밤 <b>가족 별빛축제</b></div>
+    <a class="chip" href="../">축제 안내</a>
+  </div>
+
+  <header class="hero">
+    <div class="badge">3</div>
+    <div>
+      <h1>태양계 몸무게</h1>
+      <p>저울은 하나, 몸무게는 <b>행성마다 달라요!</b></p>
+    </div>
+  </header>
+
+  <section class="card">
+    <div class="tabs" role="tablist">
+      <button role="tab" id="tabMe" aria-selected="true">나 혼자</button>
+      <button role="tab" id="tabFam" aria-selected="false">우리 가족 합계</button>
+    </div>
+    <div class="label"><span id="inLabel">지구에서 잰 내 몸무게</span></div>
+    <div class="inrow">
+      <label class="kg"><input id="kg" type="number" inputmode="decimal" min="0" max="300" step="0.1" placeholder="0" aria-label="지구 몸무게(kg)"><span>kg</span></label>
+      <button class="add hidden" id="addBtn">＋ 더하기</button>
+    </div>
+    <div class="quick" id="quick"></div>
+    <div id="famBox" class="hidden">
+      <div class="fam" id="famList"></div>
+      <div class="total">가족 합계 <b id="famTotal">0</b> kg</div>
+      <div class="hint">한 명씩 몸무게를 넣고 [＋ 더하기]를 눌러요. 목성에선 우리 가족이 몇 kg일까요?</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="label" style="padding:0 2px"><span>행성을 눌러 보세요</span><span style="font-weight:500;color:var(--dim)">× 숫자 = 중력 배율</span></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="card result" id="result" aria-live="polite">
+    <div class="empty" id="empty">몸무게를 넣고 행성 버튼을 누르면<br>그 행성에서의 몸무게가 나와요 🪐</div>
+    <div id="out" class="hidden">
+      <div class="big"><div class="dot" id="oDot"></div></div>
+      <div class="who" id="oWho"></div>
+      <div class="num"><span id="oNum">0</span><small>kg</small></div>
+      <div class="calc" id="oCalc"></div>
+      <div class="diff" id="oDiff"></div>
+      <div class="fact" id="oFact"></div>
+    </div>
+  </section>
+
+  <button class="all" id="allBtn">모든 행성 한 번에 보기 ▾</button>
+  <div class="card hidden" id="allBox"><table id="allTable"></table></div>
+
+  <section class="card why">
+    <h3>왜 몸무게가 달라질까요?</h3>
+    <p>내 몸의 양(질량)은 어디서나 그대로예요. 그런데 행성마다 <b style="color:var(--hl)">끌어당기는 힘(중력)</b>이 달라서 저울 숫자가 바뀌어요.</p>
+    <p>무거운 행성일수록 세게 당기고, 덩치가 커서 표면이 멀면 조금 약해져요. 그래서 거대한 토성에서는 오히려 지구보다 가벼워요!</p>
+    <p style="margin:0;color:var(--dim);font-size:13px">목성·토성·천왕성·해왕성은 딛고 설 땅이 없는 가스 행성이라, 구름 꼭대기 높이를 기준으로 계산해요.</p>
+  </section>
+
+  <a class="stamp" href="../stamp/">
+    <div><b>체험했다면 스탬프 찍기 ★</b><span>스탬프 앱에서 [번호 입력]</span></div>
+    <i>5310</i>
+  </a>
+
+  <div class="foot">
+    입력한 몸무게는 이 화면에서만 계산되고, 어디에도 저장·전송되지 않아요.<br>
+    중력 배율: NASA 행성 자료(지구 = 1) · 소수 둘째 자리 반올림<br>
+    주최 김해시청소년수련관 · 협력 김해천문대 · 문의 055-346-2100
+  </div>
+</div>
+
+<script>
+const P=[
+ {k:'mercury',n:'수성',g:0.378,f:'0.38',c1:'#c9c4bc',c2:'#5e5a55',fact:'태양과 가장 가까운 작은 행성이라 당기는 힘이 약해요. 지구의 3분의 1 조금 넘어요.'},
+ {k:'venus',n:'금성',g:0.907,f:'0.91',c1:'#f6dca0',c2:'#b6823c',fact:'크기가 지구와 비슷해서 몸무게도 거의 비슷해요. 그래서 "지구의 쌍둥이"라고 불려요.'},
+ {k:'earth',n:'지구',g:1,f:'1',c1:'#7cc0ef',c2:'#1d4f99',fact:'지금 저울에 나온 숫자가 바로 지구 몸무게예요. 모든 행성의 기준이에요.'},
+ {k:'moon',n:'달',g:0.166,f:'0.17',c1:'#f1efea',c2:'#8d8a84',fact:'지구의 약 6분의 1! 달에서 점프하면 지구보다 훨씬 높이 떠올라요.'},
+ {k:'mars',n:'화성',g:0.377,f:'0.38',c1:'#f0a07a',c2:'#8f3418',fact:'붉은 행성 화성은 지구보다 작아서, 수성과 거의 같은 힘으로 당겨요.'},
+ {k:'jupiter',n:'목성',g:2.36,f:'2.36',c1:'#f0cda0',c2:'#9a6033',fact:'태양계에서 가장 무거운 행성! 지구보다 2배 넘게 세게 당겨요. 여기서 가장 무거워져요.'},
+ {k:'saturn',n:'토성',g:0.916,f:'0.92',c1:'#f6e3b4',c2:'#a98546',fact:'덩치는 엄청 크지만 속이 가벼운 가스라서, 오히려 지구보다 조금 가벼워요. 물에 띄우면 뜰 만큼 가벼운 행성이에요.'},
+ {k:'uranus',n:'천왕성',g:0.889,f:'0.89',c1:'#c8f0f4',c2:'#4a9fb2',fact:'옆으로 누워서 도는 신기한 행성. 몸무게는 지구보다 조금 가벼워요.'},
+ {k:'neptune',n:'해왕성',g:1.12,f:'1.12',c1:'#9fb5f7',c2:'#2741a8',fact:'태양에서 가장 먼 행성이에요. 지구보다 조금 더 무거워져요.'}
+];
+const $=id=>document.getElementById(id);
+const dotStyle=p=>{
+  let bg=`radial-gradient(circle at 35% 32%,#fff 0,${p.c1} 22%,${p.c2} 100%)`;
+  if(p.k==='jupiter')bg=`repeating-linear-gradient(0deg,transparent 0 14%,#8c4f2555 14% 22%),`+bg;
+  if(p.k==='earth')bg=`radial-gradient(circle at 38% 40%,#4fae6bcc 0 16%,transparent 17%),radial-gradient(circle at 66% 64%,#4fae6bcc 0 13%,transparent 14%),`+bg;
+  return bg;
+};
+const ring=(el,p,big)=>{ if(p.k==='saturn'){const r=document.createElement('div');const w=big?170:66,h=big?36:14;r.style.cssText=`position:absolute;left:50%;top:50%;width:${w}px;height:${h}px;margin:${-h/2}px 0 0 ${-w/2}px;border:${big?5:2}px solid #f3dfb0cc;border-radius:50%;transform:rotate(-16deg);pointer-events:none`;el.appendChild(r);} };
+
+let mode='me', fam=[], sel=null;
+const grid=$('grid');
+P.forEach(p=>{
+  const b=document.createElement('button');b.className='pbtn'+(p.k==='earth'?' earth':'');b.setAttribute('aria-pressed','false');b.dataset.k=p.k;
+  b.innerHTML=`<div class="dot" style="background:${dotStyle(p)}"></div><div class="nm">${p.n}</div><div class="fx">× ${p.f}</div>`;
+  ring(b.querySelector('.dot'),p,false);
+  b.onclick=()=>{sel=p.k;[...grid.children].forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===sel?'true':'false'));render(true);};
+  grid.appendChild(b);
+});
+[20,30,40,50,60,70].forEach(v=>{const b=document.createElement('button');b.textContent=v+'kg';b.onclick=()=>{$('kg').value=v;if(mode==='fam')addMember();render(false)};$('quick').appendChild(b)});
+
+const fmt=v=>{const r=Math.round(v*10)/10;return (Number.isInteger(r)?r.toString():r.toFixed(1))};
+const base=()=>{ if(mode==='fam') return fam.reduce((a,b)=>a+b,0); const v=parseFloat($('kg').value); return (v>0&&v<=300)?v:0; };
+
+function render(anim){
+  const w=base(); const p=P.find(x=>x.k===sel);
+  if(!w||!p){ $('out').classList.add('hidden'); $('empty').classList.remove('hidden');
+    $('empty').innerHTML = !w ? (mode==='fam'?'가족 몸무게를 한 명씩 더해 주세요 👨‍👩‍👧':'먼저 지구에서 잰 몸무게를 넣어 주세요 ⚖️') : '이제 행성 버튼을 눌러 보세요 🪐';
+    renderAll(w); return; }
+  $('empty').classList.add('hidden'); $('out').classList.remove('hidden');
+  const d=$('oDot'); d.innerHTML=''; d.style.background=dotStyle(p); ring(d,p,true);
+  if(anim){d.classList.remove('pop');void d.offsetWidth;d.classList.add('pop');}
+  const r=w*p.g;
+  $('oWho').textContent=(mode==='fam'?'우리 가족은 ':'나는 ')+p.n+'에서';
+  $('oNum').textContent=fmt(r);
+  $('oCalc').textContent=`지구 ${fmt(w)}kg × ${p.g} = ${fmt(r)}kg`;
+  const df=r-w; const dd=$('oDiff');
+  if(p.k==='earth'){dd.textContent='지구가 기준이에요';dd.style.color='var(--mint)';}
+  else if(Math.abs(df)<0.05){dd.textContent='지구와 같아요';dd.style.color='var(--mint)';}
+  else if(df>0){dd.textContent=`지구보다 ${fmt(df)}kg 무거워요 ⬆`;dd.style.color='var(--orange)';}
+  else {dd.textContent=`지구보다 ${fmt(-df)}kg 가벼워요 ⬇`;dd.style.color='var(--lav)';}
+  $('oFact').innerHTML=`<b>${p.n} 이야기</b> · ${p.fact}`;
+  renderAll(w);
+}
+function renderAll(w){
+  const t=$('allTable');
+  if(!w){t.innerHTML='<tr><td style="color:var(--dim);border:0">몸무게를 넣으면 9개 천체를 한 번에 볼 수 있어요.</td></tr>';return;}
+  t.innerHTML=P.map(p=>`<tr class="${p.k==='jupiter'?'hi':''}"><td>${p.n}<span class="f">× ${p.f}</span></td><td>${fmt(w*p.g)} kg</td></tr>`).join('');
+}
+function addMember(){
+  const v=parseFloat($('kg').value); if(!(v>0&&v<=300)){ $('kg').focus(); return; }
+  if(fam.length>=12) return;
+  fam.push(v); $('kg').value=''; drawFam(); render(false);
+}
+function drawFam(){
+  $('famList').innerHTML=fam.map((v,i)=>`<span class="m">${i+1}번 ${fmt(v)}kg<button aria-label="빼기" data-i="${i}">✕</button></span>`).join('');
+  $('famList').querySelectorAll('button').forEach(b=>b.onclick=()=>{fam.splice(+b.dataset.i,1);drawFam();render(false)});
+  $('famTotal').textContent=fmt(fam.reduce((a,b)=>a+b,0));
+}
+function setMode(m){
+  mode=m; $('tabMe').setAttribute('aria-selected',m==='me'); $('tabFam').setAttribute('aria-selected',m==='fam');
+  $('addBtn').classList.toggle('hidden',m!=='fam'); $('famBox').classList.toggle('hidden',m!=='fam');
+  $('inLabel').textContent=m==='fam'?'가족 한 명씩 지구 몸무게 넣기':'지구에서 잰 내 몸무게';
+  render(false);
+}
+$('tabMe').onclick=()=>setMode('me'); $('tabFam').onclick=()=>setMode('fam');
+$('addBtn').onclick=addMember;
+$('kg').addEventListener('input',()=>{ if(mode==='me') render(false); });
+$('kg').addEventListener('keydown',e=>{ if(e.key==='Enter'){ if(mode==='fam') addMember(); else $('kg').blur(); } });
+$('allBtn').onclick=()=>{const b=$('allBox');b.classList.toggle('hidden');$('allBtn').textContent=b.classList.contains('hidden')?'모든 행성 한 번에 보기 ▾':'접기 ▴';};
+render(false);
+</script>
+</body>
+</html>
